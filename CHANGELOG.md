@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/SocialGouv/serving-ml/compare/v1.0.2...v1.0.3) (2020-06-09)
+
+
+### Bug Fixes
+
+* dummy ([76689d4](https://github.com/SocialGouv/serving-ml/commit/76689d4d9ef3a0edec19ea637ab4a4d2f382f669))
+
 ## [1.0.2](https://github.com/SocialGouv/serving-ml/compare/v1.0.1...v1.0.2) (2020-06-09)
 
 
