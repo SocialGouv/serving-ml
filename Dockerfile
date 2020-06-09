@@ -1,4 +1,4 @@
-FROM tensorflow/serving:2.2.0-rc2
+FROM tensorflow/serving:2.2.0
 
 RUN apt-get update && apt-get install -y curl
 
