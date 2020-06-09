@@ -11,12 +11,12 @@ In order to reduce the amount of code to maintain, and given the recent updates 
 We're using the _Universal Sentence Encoder Multilingual QA_ from Google, [a great documentation is available](https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3](https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3)).
 The first step is to download the model itself :
 ```
-$ curl https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3?tf-hub-format=compressed --output sentqam.tar.gz
+curl https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3.tar.gz --output sentqam.tar.gz
 ```
 
 We need to decompress it and use a specific path in order to explicitly set the model version (for TF serve).
 ```
-$ mkdir -p sentqam/3/ & tar -zxf sentqam.tar.gz --directory sentqam/3/
+mkdir -p sentqam/3/ & tar -zxf sentqam.tar.gz --directory sentqam/3/
 ```
 
 > only the `/3` is important, sentqam is just a shorter name for sentence query answer multilingual
