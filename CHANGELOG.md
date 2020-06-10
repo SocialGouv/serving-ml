@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/SocialGouv/serving-ml/compare/v1.0.3...v1.0.4) (2020-06-10)
+
+
+### Bug Fixes
+
+* **gitlab:** update socialgouv/gitlab-ci-yml to v17.0.0-beta.15 ([6f34901](https://github.com/SocialGouv/serving-ml/commit/6f349018e432d2d5e1139b92d1e1b6e0b9ffb1a1))
+
 ## [1.0.3](https://github.com/SocialGouv/serving-ml/compare/v1.0.2...v1.0.3) (2020-06-09)
 
 
