@@ -1,4 +1,3 @@
-
 # Using a tensorflow model with tensorflow/serving
 
 In the [CDTN](https://github.com/SocialGouv/code-du-travail-numerique) project, we're making use of a Tensorflow model to generate embeddings for queries and documents.
