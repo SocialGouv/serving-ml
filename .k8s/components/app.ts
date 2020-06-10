@@ -26,17 +26,6 @@ deployment.spec!.template.spec!.containers[0].readinessProbe = {
   timeoutSeconds: 3,
 };
 
-deployment.spec!.template.spec!.containers[0].resources = {
-  limits: {
-    cpu: "1000m",
-    memory: "1024Mi",
-  },
-  requests: {
-    cpu: "100m",
-    memory: "256Mi",
-  },
-};
-
 //
 
 export default [deployment, ingress, service];
