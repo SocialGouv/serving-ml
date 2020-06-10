@@ -16,11 +16,11 @@ export default {
   },
   requests: {
     cpu: "100m",
-    memory: "128Mi",
+    memory: "1Gi",
   },
   limits: {
     cpu: "1000m",
-    memory: "1Gi",
+    memory: "3Gi",
   },
   containerPort: 8501,
   servicePort: 80,
