@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/SocialGouv/serving-ml/compare/v1.0.6...v1.0.7) (2020-06-25)
+
+
+### Bug Fixes
+
+* **ci:** increase limits ([3224e1f](https://github.com/SocialGouv/serving-ml/commit/3224e1f8ae647f49abe5f765fbe7024646ed4538))
+
 ## [1.0.6](https://github.com/SocialGouv/serving-ml/compare/v1.0.5...v1.0.6) (2020-06-19)
 
 
