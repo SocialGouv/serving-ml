@@ -2,10 +2,47 @@ import { ok } from "assert";
 import { create } from "@socialgouv/kosko-charts/components/app";
 import { metadataFromParams } from "@socialgouv/kosko-charts/components/app/metadata";
 import env from "@kosko/env";
-import { ConfigMap } from "kubernetes-models/v1/ConfigMap";
+import { HorizontalPodAutoscaler } from "kubernetes-models/autoscaling/v2beta2/HorizontalPodAutoscaler";
 
 const params = env.component("app");
 const { deployment, ingress, service } = create(params);
+
+const hpa = new HorizontalPodAutoscaler({
+  metadata: metadataFromParams(params),
+  spec: {
+    minReplicas: 1,
+    maxReplicas: 5,
+
+    metrics: [
+      {
+        resource: {
+          name: "cpu",
+          target: {
+            averageUtilization: 80,
+            type: "Utilization",
+          },
+        },
+        type: "Resource",
+      },
+      {
+        resource: {
+          name: "memory",
+          target: {
+            averageUtilization: 80,
+            type: "Utilization",
+          },
+        },
+        type: "Resource",
+      },
+    ],
+
+    scaleTargetRef: {
+      apiVersion: "apps/v1",
+      kind: "Deployment",
+      name: deployment.metadata!.name!,
+    },
+  },
+});
 
 //
 
@@ -28,4 +65,4 @@ deployment.spec!.template.spec!.containers[0].readinessProbe = {
 
 //
 
-export default [deployment, ingress, service];
+export default [deployment, ingress, service, hpa];
