@@ -37,8 +37,8 @@ const hpa = new HorizontalPodAutoscaler({
     ],
 
     scaleTargetRef: {
-      apiVersion: "apps/v1",
-      kind: "Deployment",
+      apiVersion: deployment.apiVersion,
+      kind: deployment.kind,
       name: deployment.metadata!.name!,
     },
   },
