@@ -16,7 +16,7 @@ export default {
   },
   requests: {
     cpu: "300m",
-    memory: "1Gi",
+    memory: "2Gi",
   },
   // cpu=1000, memory=3Gi offers 17req/s
   limits: {
