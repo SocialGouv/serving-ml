@@ -1,8 +1,12 @@
 {
   "license": "Apache-2.0",
   "scripts": {
-    "gitlab": "kosko generate --env gitlab",
-    "local": "kosko generate --env local"
+    "generate": "kosko generate",
+    "generate:dev": "kosko generate  --env dev",
+    "generate:prod": "kosko generate  --env dev",
+    "gitlab": "DOTENV_CONFIG_PATH=./environments/.gitlab-ci.env kosko generate --require dotenv/config",
+    "gitlab:dev": "yarn --silent gitlab --env dev",
+    "gitlab:prod": "yarn --silent gitlab --env prod"
   },
   "dependencies": {
     "@kosko/env": "^0.5.2",
