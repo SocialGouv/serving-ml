@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/SocialGouv/serving-ml/compare/v1.0.7...v1.0.8) (2020-07-07)
+
+
+### Reverts
+
+* Revert "chore(release): version 1.0.7" ([1f590c1](https://github.com/SocialGouv/serving-ml/commit/1f590c104132cc984c3fb06f88291bb8e02c0e13))
+
 ## [1.0.6](https://github.com/SocialGouv/serving-ml/compare/v1.0.5...v1.0.6) (2020-06-19)
 
 
