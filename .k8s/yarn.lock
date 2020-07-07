@@ -115,13 +115,19 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@socialgouv/kosko-charts@^2.0.0-beta.6":
-  version "2.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@socialgouv/kosko-charts/-/kosko-charts-2.0.0-beta.7.tgz#41d6dfcedab5ade4d17aef61d5bf9f914f5ca902"
-  integrity sha512-ajN+RJVbn7K0V4tzjIOgype8xJ/VNsezuk9/2JQ9Ua/gd7d3F6wSp9iW/HTICu9JAZII36+uPI3Vvrrir/c0aQ==
+"@sindresorhus/is@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-3.0.0.tgz#78fabc5e295adb6e1ef57eaafe4cc5d7aa35b183"
+  integrity sha512-kqA5I6Yun7PBHk8WN9BBP1c7FfN2SrD05GuVSEYPqDb4nerv7HqYfgBfMIKmT/EuejURkJKLZuLyGKGs6WEG9w==
+
+"@socialgouv/kosko-charts@^2.0.0-beta.17":
+  version "2.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/@socialgouv/kosko-charts/-/kosko-charts-2.0.0-beta.17.tgz#c3338973d69ec908ed5aee571404afaf1e2da51a"
+  integrity sha512-u2BcfrOvMQKJtoVmU9uarToA3r4qmBL0IclLeYdAyJ7pLEmQePd+r140xNdviF1ZLwd7h0NeHjAhH1XvM6eSaA==
   dependencies:
-    fp-ts "^2.6.0"
-    io-ts "^2.2.2"
+    "@sindresorhus/is" "^3.0.0"
+    fp-ts "^2.6.6"
+    io-ts "2.2.7"
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -401,10 +407,10 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-fp-ts@^2.6.0:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.6.2.tgz#0115221e223e0e4a1d08d93c0ebaee9241688cd1"
-  integrity sha512-RUm0iNcD7eMFZo6W1K10kqi0DyYX06lbbjyNgKwEWg1kPZw91ZXlkEx/9cII1x/jY4fHzh14+Hquk5sJnXBzQA==
+fp-ts@^2.6.6:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.6.7.tgz#a86f904b86c93cd63300e6d40005e4caa57ccb6b"
+  integrity sha512-Uklx0kKrjwbYb142tbQZqWVHhvNzxZwJhr+gkIbwPt/exV0n8/dHDkAmB05vNKNnJMwoJr7i6pM3XW0bicrE7Q==
 
 get-caller-file@^2.0.1:
   version "2.0.5"
@@ -446,10 +452,10 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-io-ts@^2.2.2:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.4.tgz#c9b5390b8c60b9976ad03f670a6b976fe50d4083"
-  integrity sha512-a8A/3jekTgSPfQ+OG40sTiX2gohXZz89X1+TfKsWJ/vpA2dBilBkrGYPiDE8OaKMMG7xm5ma3SAZL5eNr4Bi2w==
+io-ts@2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.7.tgz#5c05477580bff4c0154b474316c8916253e87c44"
+  integrity sha512-kCusyu/Fa0oax5ue2Id/ZqVLEk5JOWyrXHcLbD4kHoVM50MhDEWUtcHlN7RrD94I8OrWILcVltM6OllnZiHJmg==
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -841,12 +847,7 @@ ts-node@^8.9.1:
     source-map-support "^0.5.17"
     yn "3.1.1"
 
-tslib@^1.10.0:
-  version "1.11.2"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.2.tgz#9c79d83272c9a7aaf166f73915c9667ecdde3cc9"
-  integrity sha512-tTSkux6IGPnUGUd1XAZHcpu85MOkIl5zX49pO+jfsie3eP0B6pyhOlLXm3cAC6T7s+euSDDUUV+Acop5WmtkVg==
-
-tslib@^1.11.1:
+tslib@^1.10.0, tslib@^1.11.1:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
