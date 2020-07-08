@@ -13,7 +13,7 @@ const hpa = new HorizontalPodAutoscaler({
   metadata: metadataFromParams(params),
   spec: {
     minReplicas: 1,
-    maxReplicas: 5,
+    maxReplicas: 10,
 
     metrics: [
       {
