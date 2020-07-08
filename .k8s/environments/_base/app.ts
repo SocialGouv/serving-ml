@@ -15,12 +15,12 @@ export default {
     component: "unknow",
   },
   requests: {
-    cpu: "300m",
-    memory: "2Gi",
+    cpu: "500m",
+    memory: "4Gi",
   },
   // cpu=1000, memory=3Gi offers 17req/s
   limits: {
-    cpu: "2000m",
+    cpu: "4000m",
     memory: "5Gi",
   },
   containerPort: 8501,
