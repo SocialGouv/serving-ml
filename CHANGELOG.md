@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/SocialGouv/serving-ml/compare/v1.0.8...v1.0.9) (2020-07-08)
+
+
+### Bug Fixes
+
+* trigger release ([6b21a27](https://github.com/SocialGouv/serving-ml/commit/6b21a27324075f899f584e4d0648be2e818ae0a2))
+
 ## [1.0.8](https://github.com/SocialGouv/serving-ml/compare/v1.0.7...v1.0.8) (2020-07-07)
 
 
