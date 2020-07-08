@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/SocialGouv/serving-ml/compare/v1.0.10...v1.0.11) (2020-07-08)
+
+
+### Bug Fixes
+
+* **k8s:** allow to use 4Gi and 0.5 up to 4 CPU ([f121471](https://github.com/SocialGouv/serving-ml/commit/f1214716966e47c8f0160009ea239ec825d95f28))
+
 ## [1.0.10](https://github.com/SocialGouv/serving-ml/compare/v1.0.9...v1.0.10) (2020-07-08)
 
 
