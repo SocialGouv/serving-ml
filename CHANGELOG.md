@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/SocialGouv/serving-ml/compare/v1.0.9...v1.0.10) (2020-07-08)
+
+
+### Bug Fixes
+
+* **k8s:** allow up to 10 serving-ml instances ([7f5aab3](https://github.com/SocialGouv/serving-ml/commit/7f5aab3984cf5fe05749ea4b25e27c1695b2a53b))
+
 ## [1.0.9](https://github.com/SocialGouv/serving-ml/compare/v1.0.8...v1.0.9) (2020-07-08)
 
 
