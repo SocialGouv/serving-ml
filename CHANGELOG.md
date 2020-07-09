@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/SocialGouv/serving-ml/compare/v1.0.11...v1.0.12) (2020-07-09)
+
+
+### Bug Fixes
+
+* **k8s:** boost CPU requirements to 1000m ([fb2c89b](https://github.com/SocialGouv/serving-ml/commit/fb2c89bedc366cd511f39aef1be1859166cb70cd))
+
 ## [1.0.11](https://github.com/SocialGouv/serving-ml/compare/v1.0.10...v1.0.11) (2020-07-08)
 
 
