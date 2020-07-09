@@ -15,7 +15,7 @@ export default {
     component: "unknow",
   },
   requests: {
-    cpu: "500m",
+    cpu: "1000m",
     memory: "4Gi",
   },
   // cpu=1000, memory=3Gi offers 17req/s
