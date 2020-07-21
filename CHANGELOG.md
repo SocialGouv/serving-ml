@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/SocialGouv/serving-ml/compare/v1.0.12...v1.0.13) (2020-07-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency kubernetes-models to ^0.8.1 ([#22](https://github.com/SocialGouv/serving-ml/issues/22)) ([1797853](https://github.com/SocialGouv/serving-ml/commit/17978537c41a5720f8325eb436abe756a7caa395))
+
 ## [1.0.12](https://github.com/SocialGouv/serving-ml/compare/v1.0.11...v1.0.12) (2020-07-09)
 
 
