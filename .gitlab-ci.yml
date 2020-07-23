@@ -23,6 +23,10 @@ Build:
   rules:
     - when: never
 
+Preprod:
+  environment:
+    auto_stop_in: 6 months
+
 Register image:
   extends: .autodevops_register_image
   needs: []
