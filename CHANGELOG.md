@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/SocialGouv/serving-ml/compare/v1.0.13...v1.0.14) (2020-07-23)
+
+
+### Bug Fixes
+
+* **gitlab:** keep the preprod for 6 months ([3bc0d9d](https://github.com/SocialGouv/serving-ml/commit/3bc0d9d9155d71dd39a2725cdb5c50e09ad8deda))
+
 ## [1.0.13](https://github.com/SocialGouv/serving-ml/compare/v1.0.12...v1.0.13) (2020-07-21)
 
 
