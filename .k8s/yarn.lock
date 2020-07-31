@@ -85,6 +85,16 @@
     is-plain-object "^3.0.0"
     tslib "^1.10.0"
 
+"@kubernetes-models/sealed-secrets@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@kubernetes-models/sealed-secrets/-/sealed-secrets-0.1.4.tgz#a6bfedd4f916ff85ccb9f2edf9ebcbf53b015091"
+  integrity sha512-2jzvOpCK7tirMMm0ChcbphMBJv1wJ9SzhD/Q9IpNPcQFwbjirk+v4QDVBLQN1yBBw3c5Ky2rI9w9BGHb/VZC1A==
+  dependencies:
+    "@kubernetes-models/base" "^0.1.4"
+    "@kubernetes-models/validate" "^0.1.2"
+    kubernetes-models "^0.8.1"
+    tslib "^1.10.0"
+
 "@kubernetes-models/validate@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@kubernetes-models/validate/-/validate-0.1.2.tgz#49954fcbf8b9076f3b6e6f9eb67c457b65ceef52"
@@ -120,11 +130,12 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-3.1.0.tgz#d8735532635bea69ad39119df5f0f10099bd09dc"
   integrity sha512-n4J+zu52VdY43kdi/XdI9DzuMr1Mur8zFL5ZRG2opCans9aiFwkPxHYFEb5Xgy7n1Z4K6WfI4FpqUqsh3E8BPQ==
 
-"@socialgouv/kosko-charts@^2.0.0-beta.17":
-  version "2.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@socialgouv/kosko-charts/-/kosko-charts-2.0.0-beta.17.tgz#c3338973d69ec908ed5aee571404afaf1e2da51a"
-  integrity sha512-u2BcfrOvMQKJtoVmU9uarToA3r4qmBL0IclLeYdAyJ7pLEmQePd+r140xNdviF1ZLwd7h0NeHjAhH1XvM6eSaA==
+"@socialgouv/kosko-charts@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@socialgouv/kosko-charts/-/kosko-charts-2.1.1.tgz#116f3070ce4fad3a77ebd681162286e0173cb8ae"
+  integrity sha512-KETiiVkW46USryh6RtXBJZ0BbeN6OHpDDtHJUB8xDYu4upVnD0uQSoAKbObB9ncDVniTcXwUlEXJ3ZPdDpG08A==
   dependencies:
+    "@kubernetes-models/sealed-secrets" "^0.1.4"
     "@sindresorhus/is" "^3.0.0"
     fp-ts "^2.6.6"
     io-ts "2.2.7"
