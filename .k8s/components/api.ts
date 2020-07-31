@@ -55,7 +55,7 @@ ok(deployment);
 const hpa = new HorizontalPodAutoscaler({
   metadata: deployment.metadata,
   spec: {
-    minReplicas: 1,
+    minReplicas: process.env.CI_COMMIT_TAG ? 2 : 1,
     maxReplicas: 10,
 
     metrics: [
