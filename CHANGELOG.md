@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/SocialGouv/serving-ml/compare/v1.0.14...v1.1.0) (2020-07-31)
+
+
+### Features
+
+* **deps:** update dependency @socialgouv/kosko-charts to ^2.1.1 ([#28](https://github.com/SocialGouv/serving-ml/issues/28)) ([4864553](https://github.com/SocialGouv/serving-ml/commit/4864553367f4050a6b95c2f4ec52c6ea3b20060a))
+
 ## [1.0.14](https://github.com/SocialGouv/serving-ml/compare/v1.0.13...v1.0.14) (2020-07-23)
 
 
