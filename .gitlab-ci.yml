@@ -30,3 +30,5 @@ Preprod:
 Register image:
   extends: .autodevops_register_image
   needs: []
+  variables:
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/api

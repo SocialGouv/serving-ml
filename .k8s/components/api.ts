@@ -1,11 +1,10 @@
 import env from "@kosko/env";
-
 import { create } from "@socialgouv/kosko-charts/components/app";
 import { Deployment } from "kubernetes-models/apps/v1/Deployment";
 import { ok } from "assert";
 import { HorizontalPodAutoscaler } from "kubernetes-models/autoscaling/v2beta2/HorizontalPodAutoscaler";
 
-const manifests = create("www", {
+const manifests = create("api", {
   env,
   config: {
     containerPort: 8501,
