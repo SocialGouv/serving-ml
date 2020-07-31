@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/SocialGouv/serving-ml/compare/v1.1.0...v1.1.1) (2020-07-31)
+
+
+### Bug Fixes
+
+* **k8s:** min 2 replicas on tagged images ([4f19391](https://github.com/SocialGouv/serving-ml/commit/4f19391b29a03da373ae368cc1f82ee6a8385bfc))
+
 # [1.1.0](https://github.com/SocialGouv/serving-ml/compare/v1.0.14...v1.1.0) (2020-07-31)
 
 
