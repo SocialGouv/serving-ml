@@ -2,9 +2,7 @@
 
 In the [CDTN](https://github.com/SocialGouv/code-du-travail-numerique) project, we're making use of a Tensorflow model to generate embeddings for queries and documents.
 
-We used to provide a flask based Python API to encapsulate the model and serve it. Our Javascript core component would then trigger calls to the Python API when required.
-
-In order to reduce the amount of code to maintain, and given the recent updates of Tensorflow, we no longer need our Python component : the model can be directly served with TF serve.
+This can be useful to add vector fields to some Elastic documents or search queries and perform [text similarity searches](https://www.elastic.co/blog/text-similarity-search-with-vectors-in-elasticsearch)
 
 ### Get the model 
 We're using the _Universal Sentence Encoder Multilingual QA_ from Google, [a great documentation is available](https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3](https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3)).
