@@ -15,7 +15,36 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Lint Dockerfile
+      - name: Lint
         uses: brpaz/hadolint-action@master
         with:
           dockerfile: "Dockerfile"
+
+      - name: Build
+        run: docker build . -t docker.pkg.github.com/socialgouv/serving-ml:${GITHUB_SHA}
+
+      - name: Run
+        run: |
+          docker run
+            --detach
+            --env MODEL_NAME=sentqam
+            --name serving-ml
+            --publish 8501:8501
+            --rm
+            docker.pkg.github.com/socialgouv/serving-ml:${GITHUB_SHA}
+
+      - name: Test
+        run: |
+          curl --request POST
+            --url http://localhost:8501/v1/models/sentqam:predict
+            --header 'content-type: application/json'
+            --data '{"signature_name":"question_encoder","inputs":["poireau"]}'
+
+          curl --request POST \
+            --url http://localhost:8501/v1/models/sentqam:predict \
+            --header 'content-type: application/json' \
+            --data '{"signature_name":"response_encoder","inputs":{"input":["Recettes de plats au poireau"], "context": ["La tarte au poireau. Fondue de poireaux. Poireaux vinaigrette."]}}'
+
+      - name: Stop
+        run: |
+          docker stop serving-ml
