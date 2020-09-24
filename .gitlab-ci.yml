@@ -12,6 +12,7 @@ Install:
     - when: never
 
 Lint:
+  needs: []
   image: hadolint/hadolint:v1.18.0-debian
   script:
     - hadolint ./Dockerfile
