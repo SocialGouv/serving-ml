@@ -33,6 +33,18 @@ jobs:
             --rm \
             docker.pkg.github.com/socialgouv/serving-ml:${GITHUB_SHA}
 
+      - name: Test
+        run: |
+          curl --request POST \
+            --url http://localhost:8501/v1/models/sentqam:predict \
+            --header 'content-type: application/json' \
+            --data '{"signature_name":"question_encoder","inputs":["poireau"]}'
+
+      #     curl --request POST \
+      #       --url http://localhost:8501/v1/models/sentqam:predict \
+      #       --header 'content-type: application/json' \
+      #       --data '{"signature_name":"response_encoder","inputs":{"input":["Recettes de plats au poireau"], "context": ["La tarte au poireau. Fondue de poireaux. Poireaux vinaigrette."]}}'
+
       - name: Stop
         run: |
           docker stop serving-ml
