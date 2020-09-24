@@ -12,8 +12,9 @@ Install:
     - when: never
 
 Lint:
-  rules:
-    - when: never
+  image: hadolint/hadolint:v1.18.0-debian
+  script:
+    - hadolint ./Dockerfile
 
 Test:
   rules:
