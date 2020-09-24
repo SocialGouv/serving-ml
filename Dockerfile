@@ -3,8 +3,18 @@ FROM tensorflow/serving:2.2.0
 RUN set -x \
   #
   && apt-get update \
+  #
   && apt-get install -y --no-install-recommends \
     curl=7.64.0-4+deb10u1
+  #
+  && apt-get purge -y --auto-remove \
+  && apt-get -y clean \
+  && apt-get -y autoclean \
+  && apt-get -y autoremove \
+  && rm -rf \
+    /var/lib/apt/lists/* \
+    /var/cache/debconf/*-old \
+  ;
 
 ENV MODEL_NAME sentqam
 
