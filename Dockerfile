@@ -5,7 +5,7 @@ RUN set -x \
   && apt-get update \
   #
   && apt-get install -y --no-install-recommends \
-    curl=7.64.0-4+deb10u1
+    curl=7.64.0-4+deb10u1 \
   #
   && apt-get purge -y --auto-remove \
   && apt-get -y clean \
