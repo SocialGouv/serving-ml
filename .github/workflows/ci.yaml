@@ -26,6 +26,7 @@ jobs:
       - name: Run
         run: |
           docker run \
+            --detach \
             --env MODEL_NAME=sentqam \
             --name serving-ml \
             --publish 8501:8501 \
