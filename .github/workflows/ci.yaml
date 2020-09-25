@@ -35,7 +35,9 @@ jobs:
 
       - name: Health
         run: |
-          curl http://localhost:8501/v1/models/sentqam
+          while ! curl --output /dev/null --silent --head --fail http://localhost:8501/v1/models/sentqam;
+            do sleep 1 && echo -n .;
+          done;
 
       - name: Test
         run: |
