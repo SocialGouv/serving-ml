@@ -45,13 +45,13 @@ jobs:
 
       - name: Test
         run: |
-          curl --request POST --header 'content-type: application/json' --data '{"signature_name":"question_encoder","inputs":["poireau"]}' \
+          curl --request POST --header 'content-type: application/json'\
+            --data '{"signature_name":"question_encoder","inputs":["poireau"]}' \
             http://localhost:8501/v1/models/sentqam:predict
 
-      #     curl --request POST \
-      #       --url http://localhost:8501/v1/models/sentqam:predict \
-      #       --header 'content-type: application/json' \
-      #       --data '{"signature_name":"response_encoder","inputs":{"input":["Recettes de plats au poireau"], "context": ["La tarte au poireau. Fondue de poireaux. Poireaux vinaigrette."]}}'
+          curl --request POST --header 'content-type: application/json' \
+            --data '{"signature_name":"response_encoder","inputs":{"input":["Recettes de plats au poireau"], "context": ["La tarte au poireau. Fondue de poireaux. Poireaux vinaigrette."]}}' \
+            http://localhost:8501/v1/models/sentqam:predict
 
       - name: Stop
         run: |
