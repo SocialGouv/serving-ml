@@ -33,6 +33,10 @@ jobs:
             --rm \
             docker.pkg.github.com/socialgouv/serving-ml:${GITHUB_SHA}
 
+      - name: Health
+        run: |
+          curl http://localhost:8501/v1/models/sentqam
+
       - name: Test
         run: |
           curl --request POST --header 'content-type: application/json' --data '{"signature_name":"question_encoder","inputs":["poireau"]}' \
