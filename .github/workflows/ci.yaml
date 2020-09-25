@@ -32,14 +32,9 @@ jobs:
             --rm \
             docker.pkg.github.com/socialgouv/serving-ml:${GITHUB_SHA} ;
 
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
-          curl http://localhost:8501/v1/models/sentqam || true;
+          sleep 10s;
+
+          curl http://localhost:8501/v1/models/sentqam;
 
       - name: Health
         run: |
