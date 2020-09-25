@@ -35,7 +35,13 @@ jobs:
 
           sleep 10s;
 
+          docker logs serving-ml
+
           curl http://localhost:8501/v1/models/sentqam;
+
+      - name: Logs
+        run: |
+          docker logs serving-ml
 
       - name: Health
         run: |
