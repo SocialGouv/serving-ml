@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/SocialGouv/serving-ml/compare/v1.1.2...v1.1.3) (2020-09-30)
+
+
+### Bug Fixes
+
+* **k8s:** review request limit and hpa ([#50](https://github.com/SocialGouv/serving-ml/issues/50)) ([e59a141](https://github.com/SocialGouv/serving-ml/commit/e59a141616c994cedc2585e3c23a7ec073a6b8ba))
+
 ## [1.1.2](https://github.com/SocialGouv/serving-ml/compare/v1.1.1...v1.1.2) (2020-09-30)
 
 
