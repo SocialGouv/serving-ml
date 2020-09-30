@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/SocialGouv/serving-ml/compare/v1.1.1...v1.1.2) (2020-09-30)
+
+
+### Bug Fixes
+
+* **k8s:** reduce requests/limits ([#49](https://github.com/SocialGouv/serving-ml/issues/49)) ([2789776](https://github.com/SocialGouv/serving-ml/commit/2789776be0f7e789a9aa2bb972b741024a5b9295))
+
 ## [1.1.1](https://github.com/SocialGouv/serving-ml/compare/v1.1.0...v1.1.1) (2020-07-31)
 
 
