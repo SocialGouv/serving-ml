@@ -35,7 +35,7 @@ const manifests = create("api", {
       },
       resources: {
         requests: {
-          cpu: "100m",
+          cpu: "10m",
           memory: "1.5Gi",
         },
         // cpu=1000, memory=3Gi offers 17req/s
@@ -63,7 +63,7 @@ const hpa = new HorizontalPodAutoscaler({
         resource: {
           name: "cpu",
           target: {
-            averageUtilization: 80,
+            averageUtilization: 4000,
             type: "Utilization",
           },
         },
@@ -73,7 +73,7 @@ const hpa = new HorizontalPodAutoscaler({
         resource: {
           name: "memory",
           target: {
-            averageUtilization: 80,
+            averageUtilization: 100,
             type: "Utilization",
           },
         },
