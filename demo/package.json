@@ -1,0 +1,15 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.9.1",
+    "@socialgouv/fiches-vdd": "socialgouv/fiches-vdd",
+    "node-fetch": "^2.6.1",
+    "ora": "^5.1.0",
+    "p-all": "^3.0.0",
+    "stopwords-fr": "^0.3.0",
+    "unist-util-select": "^3.0.1"
+  }
+}
