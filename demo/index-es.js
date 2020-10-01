@@ -5,7 +5,7 @@ const pAll = require("p-all");
 const selectAll = require("unist-util-select").selectAll;
 const ora = require("ora");
 
-const INDEX_NAME = `vectors1`;
+const INDEX_NAME = process.env.ES_INDEX_NAME || "vectors1";
 
 // need write permissions
 const client = new Client({
