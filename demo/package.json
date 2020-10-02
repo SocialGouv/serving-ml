@@ -1,8 +1,7 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@elastic/elasticsearch": "^7.9.1",
     "@socialgouv/fiches-vdd": "socialgouv/fiches-vdd",
