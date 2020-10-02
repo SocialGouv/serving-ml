@@ -15,6 +15,11 @@ const client = new Client({
     password: process.env.ES_PASSWORD,
   },
 });
+/*
+// replace with this if you're not using ES cloud :
+const client = new Client({ node: 'http://localhost:9200' })
+*/
+
 
 const NLP_URL = process.env.NLP_URL || "https://preprod-serving-ml.dev2.fabrique.social.gouv.fr";
 const tfServeURL = NLP_URL + "/v1/models/sentqam:predict";
