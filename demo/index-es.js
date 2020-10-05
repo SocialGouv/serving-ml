@@ -70,7 +70,7 @@ async function vectorizeDocument(title, content) {
   return vectors[0];
 }
 
-// vectoriser un texte
+// vectoriser une requête
 async function vectorizeQuery(query) {
   if (!query) {
     throw new Error("Cannot vectorize empty query.");
