@@ -89,6 +89,7 @@ async function vectorizeQuery(query) {
 const indexMapping = {
   properties: {
     vector: {
+ // dims : dimension of our embeddings, directly inherited from the model configuration
       dims: 512,
       type: "dense_vector",
     },
