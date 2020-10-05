@@ -271,7 +271,7 @@ const getFicheUrl = ({ type, id } = {}) =>
 const input = process.argv.length > 2 && process.argv[process.argv.length - 1];
 
 if (input) {
-  // make a search is some input text is given
+  // make a search if some input text is given
   query(input)
     .then((results) =>
       results.map(
