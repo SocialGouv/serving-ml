@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/SocialGouv/serving-ml/compare/v1.1.3...v1.2.0) (2020-10-07)
+
+
+### Features
+
+* **k8s:** remove hpa ([#54](https://github.com/SocialGouv/serving-ml/issues/54)) ([2f6b456](https://github.com/SocialGouv/serving-ml/commit/2f6b456cab4fc86a1a5e024085b6fe33a071f899))
+
 ## [1.1.3](https://github.com/SocialGouv/serving-ml/compare/v1.1.2...v1.1.3) (2020-09-30)
 
 
