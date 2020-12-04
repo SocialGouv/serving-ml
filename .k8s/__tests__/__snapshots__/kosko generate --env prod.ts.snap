@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`kosko generate --prod 1`] = `
+"---
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  labels:
+    app: api
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: api
+  namespace: serving-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-serving-ml
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
+      labels:
+        app: api
+        application: serving-ml
+        owner: serving-ml
+        team: serving-ml
+    spec:
+      containers:
+        - image: >-
+            registry.gitlab.factory.social.gouv.fr/socialgouv/serving-ml/api:0123456789abcdefghijklmnopqrstuvwxyz0123
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 15
+          name: api
+          ports:
+            - containerPort: 8501
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /healthz
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              cpu: 500m
+              memory: 2Gi
+            requests:
+              cpu: 10m
+              memory: 1.5Gi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            periodSeconds: 5
+            initialDelaySeconds: 0
+            timeoutSeconds: 15
+apiVersion: apps/v1
+kind: Deployment
+---
+metadata:
+  labels:
+    app: api
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: api
+  annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  namespace: serving-ml
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8501
+  selector:
+    app: api
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: 'true'
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  labels:
+    app: api
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: api
+  namespace: serving-ml
+spec:
+  rules:
+    - host: serving-ml.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: api
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - serving-ml.fabrique.social.gouv.fr
+      secretName: api-crt
+apiVersion: extensions/v1beta1
+kind: Ingress
+"
+`;
