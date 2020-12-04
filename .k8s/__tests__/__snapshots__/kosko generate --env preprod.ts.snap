@@ -13,6 +13,7 @@ metadata:
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
   labels:
+    azure-pg-admin-user: serving-ml
     application: v1-2-3-serving-ml
     owner: serving-ml
     team: serving-ml

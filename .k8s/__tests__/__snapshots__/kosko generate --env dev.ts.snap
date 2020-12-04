@@ -13,6 +13,7 @@ metadata:
     app.gitlab.com/env: master-dev2
     app.gitlab.com/env.name: master-dev2
   labels:
+    azure-pg-admin-user: serving-ml
     application: master-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
