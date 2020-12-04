@@ -71,7 +71,7 @@ spec:
           readinessProbe:
             failureThreshold: 15
             httpGet:
-              path: /healthz
+              path: /v1/models/sentqam
               port: http
             initialDelaySeconds: 5
             periodSeconds: 5

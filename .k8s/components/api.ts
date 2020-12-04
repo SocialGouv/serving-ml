@@ -17,6 +17,7 @@ const manifests = create("api", {
         timeoutSeconds: 15,
       },
       readinessProbe: {
+        httpGet,
         initialDelaySeconds: 5,
         timeoutSeconds: 3,
       },
