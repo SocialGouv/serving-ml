@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/SocialGouv/serving-ml/compare/v1.2.0...v1.3.0) (2020-12-10)
+
+
+### Features
+
+* **k8s:** use @socialgouv/kosko-charts@alpha ([#63](https://github.com/SocialGouv/serving-ml/issues/63)) ([9a46ad6](https://github.com/SocialGouv/serving-ml/commit/9a46ad6b451fcc658aaf7ae8da244ee2cde7de4f))
+
 # [1.2.0](https://github.com/SocialGouv/serving-ml/compare/v1.1.3...v1.2.0) (2020-10-07)
 
 
