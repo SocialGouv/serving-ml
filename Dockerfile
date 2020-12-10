@@ -5,7 +5,7 @@ RUN set -x \
   && apt-get update \
   #
   && apt-get install -y --no-install-recommends \
-    curl \
+    curl=7.58.0-2ubuntu3.12 \
   #
   && apt-get purge -y --auto-remove \
   && apt-get -y clean \
