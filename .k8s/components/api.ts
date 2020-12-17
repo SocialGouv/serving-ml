@@ -33,7 +33,7 @@ const manifests = create("api", {
         },
         // cpu=1000, memory=3Gi offers 17req/s
         limits: {
-          cpu: "500m",
+          cpu: "1000m",
           memory: "2Gi",
         },
       },
