@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/SocialGouv/serving-ml/compare/v1.3.0...v1.3.1) (2020-12-17)
+
+
+### Bug Fixes
+
+* **k8s:** upgrade ci deps ([#65](https://github.com/SocialGouv/serving-ml/issues/65)) ([d822568](https://github.com/SocialGouv/serving-ml/commit/d82256853f88832d47c5b3a0843ab0a7c0fd075d))
+
 # [1.3.0](https://github.com/SocialGouv/serving-ml/compare/v1.2.0...v1.3.0) (2020-12-10)
 
 
