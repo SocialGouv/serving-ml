@@ -8,19 +8,19 @@ metadata:
   annotations:
     field.cattle.io/creatorId: gitlab
     field.cattle.io/projectId: c-bd7z2:p-wcxt4
-    git/branch: caching2
+    git/branch: v1.2.3
     git/remote: >-
       https://gitlab-ci-token:[MASKED]@gitlab.factory.social.gouv.fr/SocialGouv/serving-ml.git
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
   labels:
     azure-pg-admin-user: serving-ml
     application: v1-2-3-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: serving-ml-144-caching2-dev2
+  name: serving-ml-144-preprod-dev2
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -29,8 +29,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
   labels:
     app: cache
     application: v1-2-3-serving-ml
@@ -38,7 +38,7 @@ metadata:
     team: serving-ml
     cert: wildcard
   name: cache
-  namespace: serving-ml-144-caching2-dev2
+  namespace: serving-ml-144-preprod-dev2
 spec:
   replicas: 1
   selector:
@@ -50,8 +50,8 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: caching2-dev2
-        app.gitlab.com/env.name: caching2-dev2
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
       labels:
         app: cache
         application: v1-2-3-serving-ml
@@ -132,9 +132,9 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
-  namespace: serving-ml-144-caching2-dev2
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  namespace: serving-ml-144-preprod-dev2
 spec:
   ports:
     - name: http
@@ -152,8 +152,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
   labels:
     app: cache
     application: v1-2-3-serving-ml
@@ -161,10 +161,10 @@ metadata:
     team: serving-ml
     cert: wildcard
   name: cache
-  namespace: serving-ml-144-caching2-dev2
+  namespace: serving-ml-144-preprod-dev2
 spec:
   rules:
-    - host: v1-2-3-serving-ml.dev2.fabrique.social.gouv.fr
+    - host: preprod-serving-ml.dev2.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -173,7 +173,7 @@ spec:
             path: /
   tls:
     - hosts:
-        - v1-2-3-serving-ml.dev2.fabrique.social.gouv.fr
+        - preprod-serving-ml.dev2.fabrique.social.gouv.fr
       secretName: wildcard-crt
 ---
 apiVersion: v1
@@ -227,8 +227,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
   labels:
     app: serving-ml
     application: v1-2-3-serving-ml
@@ -236,7 +236,7 @@ metadata:
     team: serving-ml
     cert: wildcard
   name: serving-ml
-  namespace: serving-ml-144-caching2-dev2
+  namespace: serving-ml-144-preprod-dev2
 spec:
   replicas: 1
   selector:
@@ -248,8 +248,8 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: caching2-dev2
-        app.gitlab.com/env.name: caching2-dev2
+        app.gitlab.com/env: preprod-dev2
+        app.gitlab.com/env.name: preprod-dev2
       labels:
         app: serving-ml
         application: v1-2-3-serving-ml
@@ -310,9 +310,9 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
-  namespace: serving-ml-144-caching2-dev2
+    app.gitlab.com/env: preprod-dev2
+    app.gitlab.com/env.name: preprod-dev2
+  namespace: serving-ml-144-preprod-dev2
 spec:
   ports:
     - name: http
