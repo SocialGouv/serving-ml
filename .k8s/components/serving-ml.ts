@@ -12,6 +12,7 @@ const manifests = create("serving-ml", {
   env,
   config: {
     image: getHarborImagePath({ name: "serving-ml" }),
+    ingress: false,
     containerPort: 8501,
     container: {
       livenessProbe: {
