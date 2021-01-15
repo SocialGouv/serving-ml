@@ -9,13 +9,214 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+    cert: wildcard
+  name: cache
+  namespace: serving-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      annotations:
+        kapp.k14s.io/disable-default-ownership-label-rules: ''
+        kapp.k14s.io/disable-default-label-scoping-rules: ''
+        app.gitlab.com/app: socialgouv-serving-ml
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
+      labels:
+        app: cache
+        application: serving-ml
+        owner: serving-ml
+        team: serving-ml
+        cert: wildcard
+    spec:
+      containers:
+        - image: nginx:1.19.6
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 15
+          name: cache
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 0.5Gi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            periodSeconds: 5
+            initialDelaySeconds: 0
+            timeoutSeconds: 15
+          env:
+            - name: UPSTREAM
+              value: http://api
+            - name: MAX_SIZE
+              value: 1024m
+          volumeMounts:
+            - mountPath: /var/cache/nginx
+              name: cache
+            - mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              name: config
+      volumes:
+        - name: cache
+          azureFile:
+            secretName: cache-sealed-secret
+            shareName: http-cache
+            readOnly: false
+        - name: config
+          configMap:
+            name: nginx-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+    cert: wildcard
+  name: cache
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
+  namespace: serving-ml
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: cache
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: 'true'
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+    cert: wildcard
+  name: cache
+  namespace: serving-ml
+spec:
+  rules:
+    - host: serving-ml.dev2.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: cache
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - serving-ml.dev2.fabrique.social.gouv.fr
+      secretName: cache-crt
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+
+    events {
+     worker_connections 1024;
+    }
+
+    http {
+     include mime.types;
+     default_type application/octet-stream;
+     sendfile on;
+     keepalive_timeout 65;
+     client_max_body_size 200k;
+
+     proxy_buffering on;
+     proxy_cache_path /cache levels=1:2 keys_zone=small:1m inactive=1w use_temp_path=off;
+
+     server {
+      listen 80;
+      server_name localhost;
+
+      location / {
+       try_files $uri @backend;
+      }
+
+      location @backend {
+       proxy_cache small;
+       proxy_cache_methods POST;
+       proxy_pass http://api:80;
+       proxy_cache_key \\"$request_uri|$request_body\\";
+       proxy_cache_valid any 1w;
+       proxy_buffers 8 32k;
+       proxy_buffer_size 64k;
+       proxy_cache_use_stale updating;
+       add_header X-Cached $upstream_cache_status;
+      }
+     }
+
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: serving-ml
   namespace: serving-ml
 spec:
@@ -29,13 +230,14 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: prod2
-        app.gitlab.com/env.name: prod2
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
       labels:
         app: serving-ml
         application: serving-ml
         owner: serving-ml
         team: serving-ml
+        cert: wildcard
     spec:
       containers:
         - image: harbor.fabrique.social.gouv.fr/cdtn/serving-ml:1.2.3
@@ -84,13 +286,14 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: serving-ml
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   namespace: serving-ml
 spec:
   ports:
@@ -100,75 +303,5 @@ spec:
   selector:
     app: serving-ml
   type: ClusterIP
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/tls-acme: 'true'
-    kapp.k14s.io/disable-default-ownership-label-rules: ''
-    kapp.k14s.io/disable-default-label-scoping-rules: ''
-    app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
-  labels:
-    app: serving-ml
-    application: serving-ml
-    owner: serving-ml
-    team: serving-ml
-  name: serving-ml
-  namespace: serving-ml
-spec:
-  rules:
-    - host: serving-ml.fabrique.social.gouv.fr
-      http:
-        paths:
-          - backend:
-              serviceName: serving-ml
-              servicePort: 80
-            path: /
-  tls:
-    - hosts:
-        - serving-ml.fabrique.social.gouv.fr
-      secretName: serving-ml-crt
----
-apiVersion: autoscaling/v2beta2
-kind: HorizontalPodAutoscaler
-metadata:
-  annotations:
-    kapp.k14s.io/disable-default-ownership-label-rules: ''
-    kapp.k14s.io/disable-default-label-scoping-rules: ''
-    app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
-  labels:
-    app: serving-ml
-    application: serving-ml
-    owner: serving-ml
-    team: serving-ml
-  name: serving-ml
-  namespace: serving-ml
-spec:
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-    - resource:
-        name: cpu
-        target:
-          averageUtilization: 4000
-          type: Utilization
-      type: Resource
-    - resource:
-        name: memory
-        target:
-          averageUtilization: 100
-          type: Utilization
-      type: Resource
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: serving-ml
 "
 `;
