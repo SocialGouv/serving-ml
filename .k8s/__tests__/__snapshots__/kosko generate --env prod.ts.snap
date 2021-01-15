@@ -98,6 +98,119 @@ kind: Service
 ---
 metadata:
   annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: cache
+  namespace: serving-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-serving-ml
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
+      labels:
+        app: cache
+        application: serving-ml
+        owner: serving-ml
+        team: serving-ml
+    spec:
+      containers:
+        - image: 'nginx:1.19.6'
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 15
+          name: cache
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 2Gi
+            requests:
+              cpu: 500m
+              memory: 1.5Gi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            periodSeconds: 5
+            initialDelaySeconds: 0
+            timeoutSeconds: 15
+          env:
+            - name: UPSTREAM
+              value: 'http://api'
+            - name: MAX_SIZE
+              value: 1024m
+          volumeMounts:
+            - mountPath: /var/cache/nginx
+              name: cache
+            - mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              name: config
+      volumes:
+        - name: cache
+          azureFile:
+            secretName: cache-sealed-secret
+            shareName: http-cache
+            readOnly: false
+        - name: config
+          configMap:
+            name: nginx-config
+apiVersion: apps/v1
+kind: Deployment
+---
+metadata:
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: cache
+  annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  namespace: serving-ml
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: cache
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+metadata:
+  annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: 'true'
@@ -105,11 +218,11 @@ metadata:
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: api
+    app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: cache
   namespace: serving-ml
 spec:
   rules:
@@ -117,14 +230,58 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: api
+              serviceName: cache
               servicePort: 80
             path: /
   tls:
     - hosts:
         - serving-ml.fabrique.social.gouv.fr
-      secretName: api-crt
+      secretName: cache-crt
 apiVersion: extensions/v1beta1
 kind: Ingress
+---
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+
+    events {
+     worker_connections 1024;
+    }
+
+    http {
+     include mime.types;
+     default_type application/octet-stream;
+     sendfile on;
+     keepalive_timeout 65;
+     client_max_body_size 200k;
+
+     proxy_buffering on;
+     proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=small:1m inactive=48h;
+
+     server {
+      listen 80;
+      server_name localhost;
+
+      location / {
+       try_files $uri @backend;
+      }
+
+      location @backend {
+       proxy_pass http://api:80;
+       proxy_cache small;
+       proxy_cache_methods POST;
+       proxy_cache_key \\"$request_uri|$request_body\\";
+       proxy_cache_valid any 48h;
+       proxy_buffers 8 32k;
+       proxy_buffer_size 64k;
+       proxy_cache_use_stale updating;
+       add_header X-Cached $upstream_cache_status;
+      }
+     }
+
+    }
+apiVersion: v1
+kind: ConfigMap
 "
 `;

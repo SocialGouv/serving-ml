@@ -9,6 +9,7 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
 const manifests = create("api", {
   env,
   config: {
+    ingress: false,
     containerPort: 8501,
     container: {
       livenessProbe: {
