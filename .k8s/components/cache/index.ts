@@ -12,6 +12,11 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   port: "http",
 };
 
+// renovate: datasource=docker depName=nginx versioning=1.19.6
+const NGINX_DOCKER_VERSION = "1.19.6";
+
+const AZURE_SHARE_NAME = "http-cache";
+
 // create a front nginx container that will handle cache
 //
 // users-->nginx ingress-->nginx cache-->api
@@ -19,7 +24,7 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
 const manifests = create("cache", {
   env,
   config: {
-    image: "nginx:1.19.6",
+    image: `nginx:${NGINX_DOCKER_VERSION}`,
     containerPort: 80,
     container: {
       env: [
@@ -97,7 +102,7 @@ deploy.spec.template.spec.volumes = [
     name: "cache",
     azureFile: {
       secretName: `cache-sealed-secret`,
-      shareName: "http-cache",
+      shareName: AZURE_SHARE_NAME,
       readOnly: false,
     },
   },
