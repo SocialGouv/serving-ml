@@ -1,3 +1,11 @@
+## [1.3.2](https://github.com/SocialGouv/serving-ml/compare/v1.3.1...v1.3.2) (2021-01-15)
+
+
+### Bug Fixes
+
+* limits + snaps ([#69](https://github.com/SocialGouv/serving-ml/issues/69)) ([c36838e](https://github.com/SocialGouv/serving-ml/commit/c36838e5488a41f52676aa0b63e5ab2f4ca2e915))
+* **k8s:** increase CPU limit ([#58](https://github.com/SocialGouv/serving-ml/issues/58)) ([814547b](https://github.com/SocialGouv/serving-ml/commit/814547bc80d0885edfae0b9524d298ff9ff299e2))
+
 ## [1.3.1](https://github.com/SocialGouv/serving-ml/compare/v1.3.0...v1.3.1) (2020-12-17)
 
 
