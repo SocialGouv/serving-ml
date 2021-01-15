@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/SocialGouv/serving-ml/compare/v1.3.2...v1.3.3) (2021-01-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ora to ^5.2.0 ([#68](https://github.com/SocialGouv/serving-ml/issues/68)) ([f979c62](https://github.com/SocialGouv/serving-ml/commit/f979c628854b813ce9cf4e6a04a7ce163a9ac54b))
+
 ## [1.3.2](https://github.com/SocialGouv/serving-ml/compare/v1.3.1...v1.3.2) (2021-01-15)
 
 
