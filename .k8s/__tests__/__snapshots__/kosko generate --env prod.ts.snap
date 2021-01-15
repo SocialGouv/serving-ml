@@ -9,14 +9,13 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   labels:
     app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: cache
   namespace: serving-ml
 spec:
@@ -30,14 +29,13 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: caching2-dev2
-        app.gitlab.com/env.name: caching2-dev2
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
       labels:
         app: cache
         application: serving-ml
         owner: serving-ml
         team: serving-ml
-        cert: wildcard
     spec:
       containers:
         - image: nginx:1.19.6
@@ -106,14 +104,13 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: cache
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   namespace: serving-ml
 spec:
   ports:
@@ -134,19 +131,18 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   labels:
     app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: cache
   namespace: serving-ml
 spec:
   rules:
-    - host: serving-ml.dev2.fabrique.social.gouv.fr
+    - host: serving-ml.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -155,7 +151,7 @@ spec:
             path: /
   tls:
     - hosts:
-        - serving-ml.dev2.fabrique.social.gouv.fr
+        - serving-ml.fabrique.social.gouv.fr
       secretName: cache-crt
 ---
 apiVersion: v1
@@ -209,14 +205,13 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   labels:
     app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: serving-ml
   namespace: serving-ml
 spec:
@@ -230,14 +225,13 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: caching2-dev2
-        app.gitlab.com/env.name: caching2-dev2
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
       labels:
         app: serving-ml
         application: serving-ml
         owner: serving-ml
         team: serving-ml
-        cert: wildcard
     spec:
       containers:
         - image: harbor.fabrique.social.gouv.fr/cdtn/serving-ml:1.2.3
@@ -286,14 +280,13 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: serving-ml
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   namespace: serving-ml
 spec:
   ports:
