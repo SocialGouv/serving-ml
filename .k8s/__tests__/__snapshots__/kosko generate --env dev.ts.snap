@@ -6,35 +6,35 @@ metadata:
   annotations:
     field.cattle.io/creatorId: gitlab
     field.cattle.io/projectId: 'c-bd7z2:p-wcxt4'
-    git/branch: master
+    git/branch: caching2
     git/remote: >-
       https://gitlab-ci-token:[MASKED]@gitlab.factory.social.gouv.fr/SocialGouv/serving-ml.git
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     azure-pg-admin-user: serving-ml
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: serving-ml-144-master-dev2
+  name: serving-ml-144-caching2-dev2
 apiVersion: v1
 kind: Namespace
 ---
 metadata:
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: api
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
   name: api
-  namespace: serving-ml-144-master-dev2
+  namespace: serving-ml-144-caching2-dev2
 spec:
   replicas: 1
   selector:
@@ -44,18 +44,18 @@ spec:
     metadata:
       annotations:
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: master-dev2
-        app.gitlab.com/env.name: master-dev2
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
       labels:
         app: api
-        application: master-dev2-serving-ml
+        application: caching2-dev2-serving-ml
         owner: serving-ml
         team: serving-ml
         cert: wildcard
     spec:
       containers:
         - image: >-
-            registry.gitlab.factory.social.gouv.fr/socialgouv/serving-ml/api:0123456789abcdefghijklmnopqrstuvwxyz0123
+            registry.gitlab.factory.social.gouv.fr/socialgouv/serving-ml/api:012b46eb5398a869b558c7c00d9a0f6453e450c2
           livenessProbe:
             failureThreshold: 6
             httpGet:
@@ -98,16 +98,16 @@ kind: Deployment
 metadata:
   labels:
     app: api
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
   name: api
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
-  namespace: serving-ml-144-master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
+  namespace: serving-ml-144-caching2-dev2
 spec:
   ports:
     - name: http
@@ -122,16 +122,16 @@ kind: Service
 metadata:
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: cache
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
   name: cache
-  namespace: serving-ml-144-master-dev2
+  namespace: serving-ml-144-caching2-dev2
 spec:
   replicas: 1
   selector:
@@ -141,11 +141,11 @@ spec:
     metadata:
       annotations:
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: master-dev2
-        app.gitlab.com/env.name: master-dev2
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
       labels:
         app: cache
-        application: master-dev2-serving-ml
+        application: caching2-dev2-serving-ml
         owner: serving-ml
         team: serving-ml
         cert: wildcard
@@ -176,10 +176,10 @@ spec:
           resources:
             limits:
               cpu: 1000m
-              memory: 2Gi
+              memory: 1Gi
             requests:
-              cpu: 500m
-              memory: 1.5Gi
+              cpu: 100m
+              memory: 0.5Gi
           startupProbe:
             failureThreshold: 12
             httpGet:
@@ -220,15 +220,15 @@ metadata:
   annotations:
     sealedsecrets.bitnami.com/cluster-wide: 'true'
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   name: cache-sealed-secret
   labels:
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  namespace: serving-ml-144-master-dev2
+  namespace: serving-ml-144-caching2-dev2
 spec:
   encryptedData:
     azurestorageaccountname: >-
@@ -240,11 +240,11 @@ spec:
       annotations:
         sealedsecrets.bitnami.com/cluster-wide: 'true'
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: master-dev2
-        app.gitlab.com/env.name: master-dev2
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
       name: cache-sealed-secret
       labels:
-        application: master-dev2-serving-ml
+        application: caching2-dev2-serving-ml
         owner: serving-ml
         team: serving-ml
         cert: wildcard
@@ -253,16 +253,16 @@ spec:
 metadata:
   labels:
     app: cache
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
   name: cache
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
-  namespace: serving-ml-144-master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
+  namespace: serving-ml-144-caching2-dev2
 spec:
   ports:
     - name: http
@@ -278,19 +278,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: master-dev2
-    app.gitlab.com/env.name: master-dev2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: cache
-    application: master-dev2-serving-ml
+    application: caching2-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
   name: cache
-  namespace: serving-ml-144-master-dev2
+  namespace: serving-ml-144-caching2-dev2
 spec:
   rules:
-    - host: master-dev2-serving-ml.dev2.fabrique.social.gouv.fr
+    - host: caching2-dev2-serving-ml.dev2.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -299,7 +299,7 @@ spec:
             path: /
   tls:
     - hosts:
-        - master-dev2-serving-ml.dev2.fabrique.social.gouv.fr
+        - caching2-dev2-serving-ml.dev2.fabrique.social.gouv.fr
       secretName: wildcard-crt
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -321,7 +321,7 @@ data:
      client_max_body_size 200k;
 
      proxy_buffering on;
-     proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=small:1m inactive=48h;
+     proxy_cache_path /cache levels=1:2 keys_zone=small:1m inactive=1w use_temp_path=off;
 
      server {
       listen 80;
@@ -332,11 +332,11 @@ data:
       }
 
       location @backend {
-       proxy_pass http://api:80;
        proxy_cache small;
        proxy_cache_methods POST;
+       proxy_pass http://api:80;
        proxy_cache_key \\"$request_uri|$request_body\\";
-       proxy_cache_valid any 48h;
+       proxy_cache_valid any 1w;
        proxy_buffers 8 32k;
        proxy_buffer_size 64k;
        proxy_cache_use_stale updating;

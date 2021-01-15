@@ -5,13 +5,14 @@ exports[`kosko generate --prod 1`] = `
 metadata:
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: api
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: api
   namespace: serving-ml
 spec:
@@ -23,13 +24,14 @@ spec:
     metadata:
       annotations:
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: prod2
-        app.gitlab.com/env.name: prod2
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
       labels:
         app: api
         application: serving-ml
         owner: serving-ml
         team: serving-ml
+        cert: wildcard
     spec:
       containers:
         - image: >-
@@ -79,11 +81,12 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: api
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   namespace: serving-ml
 spec:
   ports:
@@ -99,13 +102,14 @@ kind: Service
 metadata:
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: cache
   namespace: serving-ml
 spec:
@@ -117,13 +121,14 @@ spec:
     metadata:
       annotations:
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: prod2
-        app.gitlab.com/env.name: prod2
+        app.gitlab.com/env: caching2-dev2
+        app.gitlab.com/env.name: caching2-dev2
       labels:
         app: cache
         application: serving-ml
         owner: serving-ml
         team: serving-ml
+        cert: wildcard
     spec:
       containers:
         - image: 'nginx:1.19.6'
@@ -151,10 +156,10 @@ spec:
           resources:
             limits:
               cpu: 1000m
-              memory: 2Gi
+              memory: 1Gi
             requests:
-              cpu: 500m
-              memory: 1.5Gi
+              cpu: 100m
+              memory: 0.5Gi
           startupProbe:
             failureThreshold: 12
             httpGet:
@@ -192,11 +197,12 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: cache
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   namespace: serving-ml
 spec:
   ports:
@@ -215,18 +221,19 @@ metadata:
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: 'true'
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: caching2-dev2
+    app.gitlab.com/env.name: caching2-dev2
   labels:
     app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
+    cert: wildcard
   name: cache
   namespace: serving-ml
 spec:
   rules:
-    - host: serving-ml.fabrique.social.gouv.fr
+    - host: serving-ml.dev2.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -235,7 +242,7 @@ spec:
             path: /
   tls:
     - hosts:
-        - serving-ml.fabrique.social.gouv.fr
+        - serving-ml.dev2.fabrique.social.gouv.fr
       secretName: cache-crt
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -257,7 +264,7 @@ data:
      client_max_body_size 200k;
 
      proxy_buffering on;
-     proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=small:1m inactive=48h;
+     proxy_cache_path /cache levels=1:2 keys_zone=small:1m inactive=1w use_temp_path=off;
 
      server {
       listen 80;
@@ -268,11 +275,11 @@ data:
       }
 
       location @backend {
-       proxy_pass http://api:80;
        proxy_cache small;
        proxy_cache_methods POST;
+       proxy_pass http://api:80;
        proxy_cache_key \\"$request_uri|$request_body\\";
-       proxy_cache_valid any 48h;
+       proxy_cache_valid any 1w;
        proxy_buffers 8 32k;
        proxy_buffer_size 64k;
        proxy_cache_use_stale updating;
