@@ -5,14 +5,13 @@ exports[`kosko generate --prod 1`] = `
 metadata:
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   labels:
     app: api
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: api
   namespace: serving-ml
 spec:
@@ -24,14 +23,13 @@ spec:
     metadata:
       annotations:
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: caching2-dev2
-        app.gitlab.com/env.name: caching2-dev2
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
       labels:
         app: api
         application: serving-ml
         owner: serving-ml
         team: serving-ml
-        cert: wildcard
     spec:
       containers:
         - image: >-
@@ -81,12 +79,11 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: api
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   namespace: serving-ml
 spec:
   ports:
@@ -102,14 +99,13 @@ kind: Service
 metadata:
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   labels:
     app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: cache
   namespace: serving-ml
 spec:
@@ -121,14 +117,13 @@ spec:
     metadata:
       annotations:
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: caching2-dev2
-        app.gitlab.com/env.name: caching2-dev2
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
       labels:
         app: cache
         application: serving-ml
         owner: serving-ml
         team: serving-ml
-        cert: wildcard
     spec:
       containers:
         - image: 'nginx:1.19.6'
@@ -197,12 +192,11 @@ metadata:
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: cache
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   namespace: serving-ml
 spec:
   ports:
@@ -221,19 +215,18 @@ metadata:
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: 'true'
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: caching2-dev2
-    app.gitlab.com/env.name: caching2-dev2
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
   labels:
     app: cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-    cert: wildcard
   name: cache
   namespace: serving-ml
 spec:
   rules:
-    - host: serving-ml.dev2.fabrique.social.gouv.fr
+    - host: serving-ml.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -242,7 +235,7 @@ spec:
             path: /
   tls:
     - hosts:
-        - serving-ml.dev2.fabrique.social.gouv.fr
+        - serving-ml.fabrique.social.gouv.fr
       secretName: cache-crt
 apiVersion: extensions/v1beta1
 kind: Ingress
