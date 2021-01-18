@@ -1,7 +1,10 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
     file: /autodevops.yml
-    ref: v20.3.1
+    ref: v20.4.0
+  - project: SocialGouv/gitlab-ci-yml
+    file: /base_kaniko_stage.yml
+    ref: v20.4.0
 
 variables:
   AUTO_DEVOPS_RELEASE_AUTO: "🔖"
@@ -33,4 +36,4 @@ Register image:
   extends: .autodevops_register_image
   needs: []
   variables:
-    IMAGE_NAME: $CI_REGISTRY_IMAGE/api
+    IMAGE_NAME: serving-ml
