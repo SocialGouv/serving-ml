@@ -54,8 +54,7 @@ spec:
         cert: wildcard
     spec:
       containers:
-        - image: >-
-            registry.gitlab.factory.social.gouv.fr/socialgouv/serving-ml/api:1.2.3
+        - image: 'harbor.fabrique.social.gouv.fr/cdtn/serving-ml:1.2.3'
           livenessProbe:
             failureThreshold: 6
             httpGet:

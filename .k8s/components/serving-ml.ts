@@ -6,9 +6,15 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   path: "/v1/models/sentqam",
   port: "http",
 };
-const manifests = create("api", {
+
+const IMAGE_TAG = process.env.CI_COMMIT_TAG
+  ? process.env.CI_COMMIT_TAG.replace(/^v/, "")
+  : process.env.CI_COMMIT_SHA;
+
+const manifests = create("serving-ml", {
   env,
   config: {
+    image: `harbor.fabrique.social.gouv.fr/cdtn/serving-ml:${IMAGE_TAG}`,
     containerPort: 8501,
     container: {
       livenessProbe: {
