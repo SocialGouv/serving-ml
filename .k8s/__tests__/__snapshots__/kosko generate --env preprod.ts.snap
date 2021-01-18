@@ -28,18 +28,18 @@ metadata:
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
   labels:
-    app: api
+    app: serving-ml
     application: v1-2-3-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: api
+  name: serving-ml
   namespace: serving-ml-144-preprod-dev2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: serving-ml
   template:
     metadata:
       annotations:
@@ -47,7 +47,7 @@ spec:
         app.gitlab.com/env: preprod-dev2
         app.gitlab.com/env.name: preprod-dev2
       labels:
-        app: api
+        app: serving-ml
         application: v1-2-3-serving-ml
         owner: serving-ml
         team: serving-ml
@@ -63,7 +63,7 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
             timeoutSeconds: 15
-          name: api
+          name: serving-ml
           ports:
             - containerPort: 8501
               name: http
@@ -96,12 +96,12 @@ kind: Deployment
 ---
 metadata:
   labels:
-    app: api
+    app: serving-ml
     application: v1-2-3-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: api
+  name: serving-ml
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: preprod-dev2
@@ -113,7 +113,7 @@ spec:
       port: 80
       targetPort: 8501
   selector:
-    app: api
+    app: serving-ml
   type: ClusterIP
 apiVersion: v1
 kind: Service
@@ -125,12 +125,12 @@ metadata:
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
   labels:
-    app: api
+    app: serving-ml
     application: v1-2-3-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: api
+  name: serving-ml
   namespace: serving-ml-144-preprod-dev2
 spec:
   rules:
@@ -138,7 +138,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: api
+              serviceName: serving-ml
               servicePort: 80
             path: /
   tls:
