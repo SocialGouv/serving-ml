@@ -8,17 +8,17 @@ metadata:
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: api
+    app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: serving-ml
   namespace: serving-ml
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: serving-ml
   template:
     metadata:
       annotations:
@@ -26,7 +26,7 @@ spec:
         app.gitlab.com/env: prod2
         app.gitlab.com/env.name: prod2
       labels:
-        app: api
+        app: serving-ml
         application: serving-ml
         owner: serving-ml
         team: serving-ml
@@ -41,7 +41,7 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
             timeoutSeconds: 15
-          name: api
+          name: serving-ml
           ports:
             - containerPort: 8501
               name: http
@@ -74,11 +74,11 @@ kind: Deployment
 ---
 metadata:
   labels:
-    app: api
+    app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: serving-ml
   annotations:
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: prod2
@@ -90,7 +90,7 @@ spec:
       port: 80
       targetPort: 8501
   selector:
-    app: api
+    app: serving-ml
   type: ClusterIP
 apiVersion: v1
 kind: Service
@@ -104,11 +104,11 @@ metadata:
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: api
+    app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: serving-ml
   namespace: serving-ml
 spec:
   rules:
@@ -116,13 +116,13 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: api
+              serviceName: serving-ml
               servicePort: 80
             path: /
   tls:
     - hosts:
         - serving-ml.fabrique.social.gouv.fr
-      secretName: api-crt
+      secretName: serving-ml-crt
 apiVersion: extensions/v1beta1
 kind: Ingress
 "
