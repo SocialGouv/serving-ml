@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/SocialGouv/serving-ml/compare/v1.3.3...v1.4.0) (2021-01-25)
+
+
+### Features
+
+* **k8s:** add nginx caching ([#70](https://github.com/SocialGouv/serving-ml/issues/70)) ([7fbe1b6](https://github.com/SocialGouv/serving-ml/commit/7fbe1b6d74cc7d0686144a5f4821d2d4da36a1b5))
+
+
+### Reverts
+
+* Revert "feat(k8s): add nginx caching" (#74) ([631ebbc](https://github.com/SocialGouv/serving-ml/commit/631ebbc40eb094180a4c0184f83b9efd42367010)), closes [#74](https://github.com/SocialGouv/serving-ml/issues/74)
+
 ## [1.3.3](https://github.com/SocialGouv/serving-ml/compare/v1.3.2...v1.3.3) (2021-01-15)
 
 
