@@ -1,14 +1,13 @@
 include:
   - project: SocialGouv/gitlab-ci-yml
     file: /autodevops.yml
-    ref: v20.4.1
-  - project: SocialGouv/gitlab-ci-yml
-    file: /base_kaniko_stage.yml
-    ref: v20.4.1
+    ref: v20.5.1
 
 variables:
+  AUTO_DEVOPS_KANIKO: "🐕"
   AUTO_DEVOPS_RELEASE_AUTO: "🔖"
   AUTO_DEVOPS_PRODUCTION_AUTO: "🚀"
+  AUTO_DEVOPS_ENABLE_KAPP: "😱"
 
 Install:
   rules:
@@ -31,9 +30,3 @@ Build:
 Preprod:
   environment:
     auto_stop_in: 6 months
-
-Register image:
-  extends: .autodevops_register_image
-  needs: []
-  variables:
-    IMAGE_NAME: serving-ml
