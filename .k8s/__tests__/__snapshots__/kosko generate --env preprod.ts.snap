@@ -24,6 +24,8 @@ kind: Namespace
 ---
 metadata:
   annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
@@ -43,6 +45,8 @@ spec:
   template:
     metadata:
       annotations:
+        kapp.k14s.io/disable-default-ownership-label-rules: ''
+        kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
         app.gitlab.com/env: preprod-dev2
         app.gitlab.com/env.name: preprod-dev2
@@ -103,6 +107,8 @@ metadata:
     cert: wildcard
   name: serving-ml
   annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
@@ -121,6 +127,8 @@ kind: Service
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: preprod-dev2
     app.gitlab.com/env.name: preprod-dev2
