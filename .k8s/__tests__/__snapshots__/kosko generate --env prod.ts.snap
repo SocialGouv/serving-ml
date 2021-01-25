@@ -8,6 +8,227 @@ metadata:
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: cache
+  namespace: serving-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-serving-ml
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
+      labels:
+        app: cache
+        application: serving-ml
+        owner: serving-ml
+        team: serving-ml
+    spec:
+      containers:
+        - image: 'nginx:1.19.6'
+          livenessProbe:
+            failureThreshold: 6
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 15
+          name: cache
+          ports:
+            - containerPort: 80
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 1Gi
+            requests:
+              cpu: 100m
+              memory: 0.5Gi
+          startupProbe:
+            failureThreshold: 12
+            httpGet:
+              path: /v1/models/sentqam
+              port: http
+            periodSeconds: 5
+            initialDelaySeconds: 0
+            timeoutSeconds: 15
+          env:
+            - name: UPSTREAM
+              value: 'http://api'
+            - name: MAX_SIZE
+              value: 1024m
+          volumeMounts:
+            - mountPath: /var/cache/nginx
+              name: cache
+            - mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              name: config
+          envFrom:
+            - secretRef:
+                name: cache-sealed-secret
+      volumes:
+        - name: cache
+          azureFile:
+            secretName: cache-sealed-secret
+            shareName: http-cache
+            readOnly: false
+        - name: config
+          configMap:
+            name: nginx-config
+apiVersion: apps/v1
+kind: Deployment
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  name: cache-sealed-secret
+  namespace: serving-ml
+  labels:
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+spec:
+  encryptedData:
+    P: >-
+      AgAWq3uIh91PCrOC00LgXtGwZjMlEEpEKdHJxBm7VXoCbZ3X5TV0rvX6iMe8ff9mQZUbyWDqnPT6lbQhhTpy96T50xOqqaqOjOXIlS6/iUDO3iFjRwOcuRDZMpEUl9EXSZ8apeScocpxUncNfeuRiXSTCY+edmwWCZV08ipf9eVW01I34dV6wfiheX8Cidf1yQeEYYWgqdj7CkYtYS3GqWhTc7dyqyo9udJVY1EG82xZGYMvdBWb7Xv6G7at3fSe0slqBNoB7nlNmv7XquRpZ8IwNgagwdkdryrovawxU9hB0BTmZ1TS0ZQONjotcuOPlLfXgjoqPyu1zg/GLJHxQQI7HLh4CQskTUEcIILA1IQzZ/SmQW/DmVc2qVpC8jQVDY0KvE4/3U57FWSyw038Cy2e+kYqko+uRDhtfgt4WXDrIC1FPkOM7m3ZEEOoiyoRw6f8hqFnHegZm/ikCFTQk45PNd7qJd9m7pLl/rkKYx1MN7JNT5uCblTrIt3fuOtncQz+LIStWl14SyAJsukEeWTtnI2OyEuSPDJmRkYQPTPXD8bFLTb9cdwSkSjTOLsA+R5gdK+KL5kgujZ89vUc0/8USpg8MhKayxnOqtvkvaPrYYCqwTsILBzBJeyOQI4i2x3tjriTy9soWMmIsRezu13Mr4tJWGvb7btPBdDTRKFjSCMgLSTSctzIyLywFy9/E13+bO7iB3DNHQrCqE/DHKuaCgXLs8+CPd7rmPKJvIxO49AE1FErzGO2w1crFNd17pQVW0BZK/sHQNLpO23DjcNk1q9J73TNUrAAx7nVQVYj0A+RHw/vr57q
+  template:
+    metadata:
+      annotations:
+        app.gitlab.com/app: socialgouv-serving-ml
+        app.gitlab.com/env: prod2
+        app.gitlab.com/env.name: prod2
+      name: cache-sealed-secret
+      labels:
+        application: serving-ml
+        owner: serving-ml
+        team: serving-ml
+    type: Opaque
+---
+metadata:
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: cache
+  annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  namespace: serving-ml
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: cache
+  type: ClusterIP
+apiVersion: v1
+kind: Service
+---
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: 'true'
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  labels:
+    app: cache
+    application: serving-ml
+    owner: serving-ml
+    team: serving-ml
+  name: cache
+  namespace: serving-ml
+spec:
+  rules:
+    - host: serving-ml.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              serviceName: cache
+              servicePort: 80
+            path: /
+  tls:
+    - hosts:
+        - serving-ml.fabrique.social.gouv.fr
+      secretName: cache-crt
+apiVersion: extensions/v1beta1
+kind: Ingress
+---
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+
+    events {
+     worker_connections 1024;
+    }
+
+    http {
+     include mime.types;
+     default_type application/octet-stream;
+     sendfile on;
+     keepalive_timeout 65;
+     client_max_body_size 200k;
+
+     proxy_buffering on;
+     proxy_cache_path /cache levels=1:2 keys_zone=small:1m inactive=1w use_temp_path=off;
+
+     server {
+      listen 80;
+      server_name localhost;
+
+      location / {
+       try_files $uri @backend;
+      }
+
+      location @backend {
+       proxy_cache small;
+       proxy_cache_methods POST;
+       proxy_pass http://api:80;
+       proxy_cache_key \\"$request_uri|$request_body\\";
+       proxy_cache_valid any 1w;
+       proxy_buffers 8 32k;
+       proxy_buffer_size 64k;
+       proxy_cache_use_stale updating;
+       add_header X-Cached $upstream_cache_status;
+      }
+     }
+
+    }
+apiVersion: v1
+kind: ConfigMap
+---
+metadata:
+  annotations:
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: prod2
+    app.gitlab.com/env.name: prod2
+  labels:
     app: serving-ml
     application: serving-ml
     owner: serving-ml
