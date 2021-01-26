@@ -23,9 +23,11 @@ Test:
   rules:
     - when: never
 
+# prevent Register Kaniko image: needs 'Build'
 Build:
-  rules:
-    - when: never
+  needs: []
+  script:
+    - echo "look ma, no build"
 
 Preprod:
   environment:
