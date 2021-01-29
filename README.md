@@ -1,4 +1,4 @@
-# Using a tensorflow model with tensorflow/serving
+# Using a tensorflow model with tensorflow/serving test
 
 [![pipeline status](https://img.shields.io/badge/pipeline-gitlab-orange?logo=gitlab)](https://gitlab.factory.social.gouv.fr/SocialGouv/cdtn/serving-ml/-/commits/master)
 

@@ -18,13 +18,7 @@ RUN set -x \
 
 ENV MODEL_NAME sentqam
 
-WORKDIR /models
+WORKDIR /models/sentqam/3
 
-RUN set -x \
-  #
-  && curl -L \
-    https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3?tf-hub-format=compressed \
-    --output sentqam.tar.gz \
-  && mkdir -p sentqam/3/ \
-  && tar -zxf sentqam.tar.gz --directory sentqam/3/ \
-  ;
+RUN curl -L https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3?tf-hub-format=compressed --output sentqam.tar.gz
+RUN tar -zxf sentqam.tar.gz --directory ./

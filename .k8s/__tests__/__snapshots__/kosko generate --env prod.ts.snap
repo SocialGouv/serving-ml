@@ -2,38 +2,43 @@
 
 exports[`kosko generate --prod 1`] = `
 "---
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: api
+    app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: serving-ml
   namespace: serving-ml
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: serving-ml
   template:
     metadata:
       annotations:
+        kapp.k14s.io/disable-default-ownership-label-rules: ''
+        kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
         app.gitlab.com/env: prod2
         app.gitlab.com/env.name: prod2
       labels:
-        app: api
+        app: serving-ml
         application: serving-ml
         owner: serving-ml
         team: serving-ml
     spec:
       containers:
-        - image: >-
-            registry.gitlab.factory.social.gouv.fr/socialgouv/serving-ml/api:1.2.3
+        - image: harbor.fabrique.social.gouv.fr/cdtn/serving-ml:1.2.3
           livenessProbe:
             failureThreshold: 6
             httpGet:
@@ -42,7 +47,7 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
             timeoutSeconds: 15
-          name: api
+          name: serving-ml
           ports:
             - containerPort: 8501
               name: http
@@ -70,17 +75,19 @@ spec:
             periodSeconds: 5
             initialDelaySeconds: 0
             timeoutSeconds: 15
-apiVersion: apps/v1
-kind: Deployment
 ---
+apiVersion: v1
+kind: Service
 metadata:
   labels:
-    app: api
+    app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: serving-ml
   annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
@@ -91,25 +98,27 @@ spec:
       port: 80
       targetPort: 8501
   selector:
-    app: api
+    app: serving-ml
   type: ClusterIP
-apiVersion: v1
-kind: Service
 ---
+apiVersion: extensions/v1beta1
+kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: 'true'
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: api
+    app: serving-ml
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: api
+  name: serving-ml
   namespace: serving-ml
 spec:
   rules:
@@ -117,14 +126,12 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: api
+              serviceName: serving-ml
               servicePort: 80
             path: /
   tls:
     - hosts:
         - serving-ml.fabrique.social.gouv.fr
-      secretName: api-crt
-apiVersion: extensions/v1beta1
-kind: Ingress
+      secretName: serving-ml-crt
 "
 `;
