@@ -509,6 +509,7 @@
     "@iarna/toml" "^2.2.5"
     debug "^4.3.1"
     tslib "^2.1.0"
+<<<<<<< HEAD
 
 "@kosko/env@^1.0.1", "@kosko/env@^1.0.2":
   version "1.0.2"
@@ -520,6 +521,8 @@
     deepmerge "^4.2.2"
     is-plain-object "^5.0.0"
     tslib "^2.1.0"
+=======
+>>>>>>> fix: ci deps
 
 <<<<<<< HEAD
 "@kosko/generate@^1.0.2":
@@ -538,17 +541,25 @@
     is-plain-object "^5.0.0"
     tslib "^2.1.0"
 
+<<<<<<< HEAD
 "@kosko/generate@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@kosko/generate/-/generate-1.0.1.tgz#d3f3487fe5f5e9040a91ad2ace3e82330baf4d46"
   integrity sha512-w8oPRZ8NUCBifq4fAaMsdLudGjvZ9dGQIkXRUvRTeOnMj2M2ut1gNjLr34dXeagjkQa666Jz82v7ioWIRVFsAA==
 >>>>>>> fix: upgrade CI
+=======
+"@kosko/generate@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@kosko/generate/-/generate-1.0.2.tgz#58fb186597a68c9963738f123d1d226d3ee19488"
+  integrity sha512-N32Dz0uPGX1IvqVvaiD4axni9B+DJvt9a0CaxAnfpuVp244BJh2u7+VWflEUrtpMbrEbnWYMtme9HlPR+gHRzw==
+>>>>>>> fix: ci deps
   dependencies:
     "@kosko/require" "^1.0.2"
     debug "^4.3.1"
     fast-glob "^3.2.4"
     js-yaml "^4.0.0"
     tslib "^2.1.0"
+<<<<<<< HEAD
 
 "@kosko/migrate@^1.0.2":
   version "1.0.2"
@@ -565,6 +576,16 @@
   integrity sha512-GCyOsEz6zGbaaqdY7sbdZ+9+QbqbW7KTW+hSz0/PMxDrPo3gujzdNPxjCKw7E2QWyGfkijq2DOvGXmP31yE/JQ==
   dependencies:
     resolve "^1.19.0"
+=======
+
+"@kosko/migrate@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@kosko/migrate/-/migrate-1.0.2.tgz#196a04437c9eb5ca6e66586095d6568e008f0919"
+  integrity sha512-+ls/6CbdTHHWNh08CABImc8CB5jnc/NTqV4CQaUniSWyvn+Q+jV1EEVg70obrXOib+sRxKI6qIDmKRQVMXnUmQ==
+  dependencies:
+    "@kosko/yaml" "^0.1.2"
+    camelcase "^6.2.0"
+>>>>>>> fix: ci deps
     tslib "^2.1.0"
 
 <<<<<<< HEAD
@@ -581,11 +602,18 @@
     resolve "^1.19.0"
     tslib "^2.1.0"
 
+<<<<<<< HEAD
 "@kosko/yaml@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@kosko/yaml/-/yaml-0.1.1.tgz#e2e7a97a4dec9f353c30f5182aec91567dc84f27"
   integrity sha512-W4G+RGoi/yKaWR5VD97zSWBZGF7qnLXsYjXmgPv33A8YBpt3yHgg075t6FP1OJzt2kMLu8tNf+DzJHHrKGa9sA==
 >>>>>>> fix: upgrade CI
+=======
+"@kosko/yaml@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@kosko/yaml/-/yaml-0.1.2.tgz#03ce272fd6accaa41d02d455145dd18539b7208f"
+  integrity sha512-yDVH1OGRTnDqm9k2ox6cDhNNACPoqR9HIhFjowV9WtkBn7Ko9zdYcjMezM7BJSNUzuI1BEtTXyXGNhpfwwB4mA==
+>>>>>>> fix: ci deps
   dependencies:
     debug "^4.3.1"
     js-yaml "^4.0.0"
@@ -1366,10 +1394,14 @@ debug@^2.2.0, debug@^2.3.3:
     ms "2.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
 =======
 debug@^4.1.0, debug@^4.1.1, debug@^4.2.0, debug@^4.3.1:
 >>>>>>> fix: upgrade CI
+=======
+debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
+>>>>>>> fix: ci deps
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
   integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
@@ -3426,10 +3458,14 @@ resolve-url@^0.2.1:
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 resolve@^1.10.0, resolve@^1.18.1, resolve@^1.19.0:
 =======
 resolve@^1.10.0, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.19.0, resolve@^1.3.2:
 >>>>>>> fix: upgrade CI
+=======
+resolve@^1.10.0, resolve@^1.18.1, resolve@^1.19.0, resolve@^1.3.2:
+>>>>>>> fix: ci deps
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.19.0.tgz#1af5bf630409734a067cae29318aac7fa29a267c"
   integrity sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==
