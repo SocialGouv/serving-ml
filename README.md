@@ -1,6 +1,6 @@
 # Using a tensorflow model with tensorflow/serving
 
-[![pipeline status](https://img.shields.io/badge/pipeline-gitlab-orange?logo=gitlab)](https://gitlab.factory.social.gouv.fr/SocialGouv/serving-ml/-/commits/master)
+[![pipeline status](https://img.shields.io/badge/pipeline-gitlab-orange?logo=gitlab)](https://gitlab.factory.social.gouv.fr/SocialGouv/cdtn/serving-ml/-/commits/master)
 
 In the [CDTN](https://github.com/SocialGouv/code-du-travail-numerique) project, we're making use of a Tensorflow model to generate embeddings for queries and documents.
 
