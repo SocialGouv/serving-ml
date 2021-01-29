@@ -1,20 +1,17 @@
 import env from "@kosko/env";
 import { create } from "@socialgouv/kosko-charts/components/app";
 import { IIoK8sApiCoreV1HTTPGetAction } from "kubernetes-models/v1";
+import { getHarborImagePath } from "@socialgouv/kosko-charts/utils/getHarborImagePath";
 
 const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   path: "/v1/models/sentqam",
   port: "http",
 };
 
-const IMAGE_TAG = process.env.CI_COMMIT_TAG
-  ? process.env.CI_COMMIT_TAG.replace(/^v/, "")
-  : process.env.CI_COMMIT_SHA;
-
 const manifests = create("serving-ml", {
   env,
   config: {
-    image: `harbor.fabrique.social.gouv.fr/cdtn/serving-ml:${IMAGE_TAG}`,
+    image: getHarborImagePath({ name: "serving-ml" }),
     containerPort: 8501,
     container: {
       livenessProbe: {

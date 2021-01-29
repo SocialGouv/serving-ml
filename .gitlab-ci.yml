@@ -23,7 +23,7 @@ Test:
   rules:
     - when: never
 
-# prevent Register Kaniko image: needs 'Build'
+# prevent "Register Kaniko image: needs 'Build'" and "Build: needs 'Install'" messages
 Build:
   needs: []
   script:
