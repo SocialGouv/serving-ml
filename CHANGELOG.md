@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/socialgouv/serving-ml/compare/v1.4.0...v1.4.1) (2021-01-29)
+
+
+### Bug Fixes
+
+* add releaserc.repositoryUrl ([e3b66ea](https://github.com/socialgouv/serving-ml/commit/e3b66ead385136c70cd67ad1fea4a294459795ad))
+* **ci:** use kaniko + harbor ([#71](https://github.com/socialgouv/serving-ml/issues/71)) ([54f8239](https://github.com/socialgouv/serving-ml/commit/54f823989a1bbde6dd3e93cccb3eebdc670bbf1a)), closes [#70](https://github.com/socialgouv/serving-ml/issues/70) [#74](https://github.com/socialgouv/serving-ml/issues/74) [#70](https://github.com/socialgouv/serving-ml/issues/70) [#74](https://github.com/socialgouv/serving-ml/issues/74)
+
 # [1.4.0](https://github.com/SocialGouv/serving-ml/compare/v1.3.3...v1.4.0) (2021-01-25)
 
 
