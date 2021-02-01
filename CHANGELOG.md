@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/socialgouv/serving-ml/compare/v1.4.1...v1.4.2) (2021-02-01)
+
+
+### Bug Fixes
+
+* **deps:** update all dependencies ([#77](https://github.com/socialgouv/serving-ml/issues/77)) ([85b6833](https://github.com/socialgouv/serving-ml/commit/85b6833009ecae2d7ccbfe5f24c2107e0d0bc013))
+
 ## [1.4.1](https://github.com/socialgouv/serving-ml/compare/v1.4.0...v1.4.1) (2021-01-29)
 
 
