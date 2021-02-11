@@ -21,7 +21,7 @@ const AZURE_SHARE_NAME = "http-cache";
 //
 // users-->nginx ingress-->nginx cache-->api
 //
-const manifests = create("cache", {
+const manifests = create("serving-ml-cache", {
   env,
   config: {
     image: `nginx:${NGINX_DOCKER_VERSION}`,
@@ -30,7 +30,7 @@ const manifests = create("cache", {
       env: [
         {
           name: "UPSTREAM",
-          value: "http://api", // refers a kubernetes service name
+          value: "http://serving-ml", // refers a kubernetes service name
         },
         {
           name: "MAX_SIZE",

@@ -12,17 +12,17 @@ metadata:
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: cache
+    app: serving-ml-cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: cache
+  name: serving-ml-cache
   namespace: serving-ml
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cache
+      app: serving-ml-cache
   template:
     metadata:
       annotations:
@@ -32,7 +32,7 @@ spec:
         app.gitlab.com/env: prod2
         app.gitlab.com/env.name: prod2
       labels:
-        app: cache
+        app: serving-ml-cache
         application: serving-ml
         owner: serving-ml
         team: serving-ml
@@ -47,7 +47,7 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
             timeoutSeconds: 15
-          name: cache
+          name: serving-ml-cache
           ports:
             - containerPort: 80
               name: http
@@ -77,7 +77,7 @@ spec:
             timeoutSeconds: 15
           env:
             - name: UPSTREAM
-              value: http://api
+              value: http://serving-ml
             - name: MAX_SIZE
               value: 1024m
           volumeMounts:
@@ -99,14 +99,12 @@ spec:
           configMap:
             name: nginx-config
 ---
-<<<<<<< HEAD
-apiVersion: v1
-kind: Service
-=======
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
@@ -118,11 +116,15 @@ metadata:
     team: serving-ml
 spec:
   encryptedData:
-    P: >-
-      AgAWq3uIh91PCrOC00LgXtGwZjMlEEpEKdHJxBm7VXoCbZ3X5TV0rvX6iMe8ff9mQZUbyWDqnPT6lbQhhTpy96T50xOqqaqOjOXIlS6/iUDO3iFjRwOcuRDZMpEUl9EXSZ8apeScocpxUncNfeuRiXSTCY+edmwWCZV08ipf9eVW01I34dV6wfiheX8Cidf1yQeEYYWgqdj7CkYtYS3GqWhTc7dyqyo9udJVY1EG82xZGYMvdBWb7Xv6G7at3fSe0slqBNoB7nlNmv7XquRpZ8IwNgagwdkdryrovawxU9hB0BTmZ1TS0ZQONjotcuOPlLfXgjoqPyu1zg/GLJHxQQI7HLh4CQskTUEcIILA1IQzZ/SmQW/DmVc2qVpC8jQVDY0KvE4/3U57FWSyw038Cy2e+kYqko+uRDhtfgt4WXDrIC1FPkOM7m3ZEEOoiyoRw6f8hqFnHegZm/ikCFTQk45PNd7qJd9m7pLl/rkKYx1MN7JNT5uCblTrIt3fuOtncQz+LIStWl14SyAJsukEeWTtnI2OyEuSPDJmRkYQPTPXD8bFLTb9cdwSkSjTOLsA+R5gdK+KL5kgujZ89vUc0/8USpg8MhKayxnOqtvkvaPrYYCqwTsILBzBJeyOQI4i2x3tjriTy9soWMmIsRezu13Mr4tJWGvb7btPBdDTRKFjSCMgLSTSctzIyLywFy9/E13+bO7iB3DNHQrCqE/DHKuaCgXLs8+CPd7rmPKJvIxO49AE1FErzGO2w1crFNd17pQVW0BZK/sHQNLpO23DjcNk1q9J73TNUrAAx7nVQVYj0A+RHw/vr57q
+    azurestorageaccountname: >-
+      AgCVik60mjKsz3pqN2YE14mY/9gbEion+7qhl9L/+kNMQwE6KUtPWYMKAXKseXlA64BQtymtWM4q0Ow/3OcfBps+c/ATaqMyvOFXw6NfGXDvEQ27dRlBkcu3azgz/JDEGJIYuZ8HMnKw1oZGTC89oZ2haAsB3OGcnf9vkfBqD2R7zTCL0xSoNTWTtMVrjVTs8fx0TbDugt9NnTbECJc7WB3Nid8KCmc76x4nHPCQs8RTx353TkgH7YUEkoZxltEqeTuEeY6eBBsSTnTgRibIC0wrgAJqIXqln8T0YuFxZTIfIvh48yFLMoOgM0kXuM15gn7SdND4nr/FMsHAIKFHkrqQFrHPOaBplKIdiIRxl3X3txNrplVrGZDgRVo4FNGS0ciunAm0XpThCAxuD3cW6l0W/ynJwpbFIHMY/6jgRTQQvkTAKUAppJtjX2KV83ue5fSEpaH3WZdllk2/hTRtSsxn33BsB+GYf++FeoHunzXRbnwr2ZONo+Kql1CDvAB3gvL7f/BZgymAhb361M5nO7Y/CbpBtHmktW9RADusKfe6kyZYX4gtmAMrWtC+9cQGFU3G8rCwAstHzcnRJcP7GDWU6bwb5kOr4Ghh+HSiZYNK7MLUUSlTahUkSzW1fzvkZsT8kgpbkTvmudhsvnoHf3pt/TKUOW3P1ksOnNqhJ8Fu3bYfjI7D1t9v/Lt3oF07mN6H/VqrhnpCG/Y+Xw+Z
+    azurestorageaccountkey: >-
+      AgCmk6JmDy2Bn1RTpCxsQCvbAsQGe4gCZ4S8VqbDQZi71V5nHU0r+y7qEn6fdsQ3+m/RFS1/CcjnChJxreGL2wFZ3Ux/eQ1f+G+DMEo482tgelmT8C62ZCIhgz4JqVAdAnlij+JvnhLcOrGhc+zYUPzFtpxRSA8l/w+8GQIvW4ezdK2RrCSGAvj/h82c71i7PEIp1HlMTwAvQhsuornQ/6KNK2WvB3Do0RHid6H7lB64ESNX5f3sSeUXRuJBPahZg+Ppq0u8AcrQg5TB2fgLcY+0uVG/gT86+7peJ6B+7+D7CiV0FavIQ4mPtUx7oBF7wUP2xwHDYA+B3zsSFk6MbdhepA8YYCXMQEXlK153xW5VzVAvQyf/srou6PcznrsI1W7Nd0YbcfC8bUHf+MRONmRIK17pdnCvwAKSXQvEX0jGT6FWB3+S9esqdCDQau4/STPjmMvCfTtTNSJqv41DjIThPHsOycd3wZYPbTAaH7FwRq06IRaiDj3FR4E+/H4LhsA9DqrkdwPLP/U8xufbH2dyQsqR16PJoAnF8MbQ8pBfDf5iD9/amg5Tcc4/PAsRjusaYuHwZfRqQbwVfxCOrKxGPbyynuJkkTiO9UwvgQGttpHt4Yw9fvI3LifOqg2b2Pbh6yTY3nEbg7LYryzoEaLtrZWIsIpuGipAYYLVBgk4HV3+AkiuHcYWsnKUbiEx9HzwXpaDJZLd15XrRdzlPhCaKFqr2oXS7uUQTlUmGPA9MZc/7EHb6k1N8JDH3p025HhNrvBL6WTgJTWq3G+VMkrRs0QZcEZXFsSLsIpWcQ+T8Z+x+sQ66vPC
   template:
     metadata:
       annotations:
+        kapp.k14s.io/disable-default-ownership-label-rules: ''
+        kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
         app.gitlab.com/env: prod2
         app.gitlab.com/env.name: prod2
@@ -133,14 +135,15 @@ spec:
         team: serving-ml
     type: Opaque
 ---
->>>>>>> fix: add envs
+apiVersion: v1
+kind: Service
 metadata:
   labels:
-    app: cache
+    app: serving-ml-cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: cache
+  name: serving-ml-cache
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
@@ -154,7 +157,7 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: cache
+    app: serving-ml-cache
   type: ClusterIP
 ---
 apiVersion: extensions/v1beta1
@@ -170,11 +173,11 @@ metadata:
     app.gitlab.com/env: prod2
     app.gitlab.com/env.name: prod2
   labels:
-    app: cache
+    app: serving-ml-cache
     application: serving-ml
     owner: serving-ml
     team: serving-ml
-  name: cache
+  name: serving-ml-cache
   namespace: serving-ml
 spec:
   rules:
@@ -182,13 +185,13 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: cache
+              serviceName: serving-ml-cache
               servicePort: 80
             path: /
   tls:
     - hosts:
         - serving-ml.fabrique.social.gouv.fr
-      secretName: cache-crt
+      secretName: serving-ml-cache-crt
 ---
 apiVersion: v1
 kind: ConfigMap

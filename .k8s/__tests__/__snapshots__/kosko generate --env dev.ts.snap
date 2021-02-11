@@ -32,18 +32,18 @@ metadata:
     app.gitlab.com/env: master-dev2
     app.gitlab.com/env.name: master-dev2
   labels:
-    app: cache
+    app: serving-ml-cache
     application: master-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: cache
+  name: serving-ml-cache
   namespace: serving-ml-144-master-dev2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cache
+      app: serving-ml-cache
   template:
     metadata:
       annotations:
@@ -53,7 +53,7 @@ spec:
         app.gitlab.com/env: master-dev2
         app.gitlab.com/env.name: master-dev2
       labels:
-        app: cache
+        app: serving-ml-cache
         application: master-dev2-serving-ml
         owner: serving-ml
         team: serving-ml
@@ -69,7 +69,7 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
             timeoutSeconds: 15
-          name: cache
+          name: serving-ml-cache
           ports:
             - containerPort: 80
               name: http
@@ -99,7 +99,7 @@ spec:
             timeoutSeconds: 15
           env:
             - name: UPSTREAM
-              value: http://api
+              value: http://serving-ml
             - name: MAX_SIZE
               value: 1024m
           volumeMounts:
@@ -141,9 +141,9 @@ metadata:
 spec:
   encryptedData:
     azurestorageaccountname: >-
-      AgCULAfTVwvi/z3xFFunx4CslhK29xPKxzvQL+nnVwQzz8jLXtNubaVnEaVcBbU6DGlfkIocbsU/bDheZ25pWuOpDtoQC7lcTa9VTX8956V9fzW1MCx6Ob8uwoxZ7Ge63IdWkX7gACtax/riEy+Kg/hlufzo/4cqZV1M2EjLoHZTnsDZ4os6pNsdNxMtEcNA/v0qOwgAkA6Fj7cn9njsR3FgIbTYWf4Hs0DH8TQdUqfJOEgE+PheuL6yJircIsxRZKRUV9zFuxFozm+aBuLHfqwI9pHGvcfZ9pfGk38H0sLX9kJpk41C4PIV0OJu28j0tozrNgYPwLaJGMRsu4Up00keSbPxaOFrhQGCtPeE0b4lsBHhWXFv4IGPiVMk6f2xWRNQ5z9PQq3YsH9ZNtiZMPxYAoQHJRWwqLbaSLpHjHDMbUlqef/LDZ8KbtF3n4omXHAOTbcvrGcYXCiyrAqZxw3jKtPRztKFkNzcPDYEWdRXfOCRJp0N5p6csyhwD06dwSxGcv5L5umm8/E4Jl/LOx9PtBZC0u0dLykAYwkD8qw9rHShQa2SXxgG+4D2oGndbjXq+M0CuqwapLLYA1MmY+A+uW+H/krHvNyBKTGF2QhAMeoLAY6bdQnwDoq1EyQ6ZB5ic/N6UpPd5uhTtL24LLLnNRXEWttR8nmanYW7Ca9BE3tJZQscduCvIYbid+Qecd0KGx7OcAlcxsUbccePrRa4
+      AgBdaDxvfdZkwR0ELCIYkSRp8App+LJcgNZ6OqnqX7m8VX7eL/zemqw5yCJQa2JjXbSXE3STHT4xmMW7zh+ot50kYAxOsbQDJrAkVzTt3Z5ZFiEJFt6IemXj/Zp2m9Xxp/vo1mtYoGbKcnJvysMkM+4gqSjoHrVRir5+2rLacmnx1p5qu3vQ4BEfmhmt1mICOTaKcOKeJv6OfLRiaCEvZhM9+IEEnSnFz/Exql0Cna/3ZYW9zmYh4ogh4pHGC5JAaVEbgWmI7ByTET5S0yWqTfF1yn62Q+Z8rGKZVCcusL7QjS7SvmXFwM9BTbpYmrdLExaRWZvyslniLKBQv+heoWnkb1HXlxneUaBsjQ5F0kH0/zqhRq0O7e+QJNvuIF3UHzMCm4LSqMAOpidFRPRqJ4j8pFF9FQUa1IvMBDG/mT1Urh7xTIJMQ6yfrPPFTswsEtZ4GHDre/StOLa2EX0sivCoCaQBYRrqK/nYWaCLa07kSwJ5PZ0jkDPmQtm1nEMoFyGT7sbA8vi4qeXnaWK3yvUFgUhj5/T4qxhkZd9jyxLPSzUkNM7jgG8l1dMiRw9g9xH6Zgp4htykthP8yEwOxGfv8tUm/FDATya4Yiy8KAAp5dwAu2Up0d0NVJ5Z8qBTdz1BFRbtsU6twNH35aZVHS+6U/iTlcmfT5AurgErMj8bWpV2BAi0wMleuJBT3dAYshpvM8ydhh577Ds+H1o=
     azurestorageaccountkey: >-
-      AgCI+qNmU2NrmRaL1wXN0tLKThEdlDDWtHp5/wHIwO1JkZR9/FmXlcFZSPeR4O4FPd7FDoJXl1FHwKUYNu4xNa7HC9fS/3TDeRTiV/a7dzbLa8C0MTSySLxuEhqwFC2TWc6T6z0FF+5XmS9Hu9kXL6wM5ZFCAf74DGtLGZdOlE2IXXhK8Ht7a6S/1aHjLs5UBegpTpeiDAawON46XzlAJEH6JMUkHIsNP6qJ00nV74+kTj+d9qSNvNx+wxcI3jxz2AsC+NuiUfk7wfJz0u8tLA+n1agkVXomREzqXOIHVbYPK8SQCD+oxQjUlFeSdJPrJzi6PSlfk2sFL4+V829E+Az1coLOkOgmOEvjnsyFGPbUNcvJofoGXeRZodAdbWjeOZwnkoZYTwZGxBnaLbjAO+igY/Wuq5faar+TBWirREkeHMaGFEpWZmqIM6U+Bej1Oy6Duqz9Qmo7wUeV4RHAUJD+nTM7AEN1pcyYiezR1iBK6lLo9N+UH7X8zFa3BkdFEOE0RpnLzK0C7BiDvfnF0XUh+dcoJJMhAgMSXthI2r5LWBtk7ypM0EXZefpAyBK2QZKfZSIq0fHsSxUnFyYC4bBK6S8Gh11tYt9Z8hm8NsV3CbntlDX6+MNw7bAaq1GFpXp5XuyRrkKP0h4tTN/SxqAWXfiurcYPWMYdcOf2b6IGc+LqI807fZj1+WShFr5HirPoIH8Roz9Kajs6xNkgNcjwKtrTIVk0oxAKucSgouie7eo/jS/lP78qkhje9XXEXbUEmy4ryQWDkyZ6TuYZLXc7bppqZsHXiWkLl/gK4Z32ZAYn93hL0JMl
+      AgBJuiFrHxkuEyqtasOCBC+hvQpPdrYaCLpZuTamb8Jv9KCANUQbFAFcB7oFBr2wSpGch3t53f5LXqlu25QTCF6GC6t6hgpt+cDxo5pD0UC0Oic1yc7n74bqO96oz8DiUZQb8DlmvCbb7Z+EYeKpGoyqcxWddoBn0i5CJi2zU8q417Y67EJ3bj6fx61ykeEFbuMvPqggR1mpJx+ZfdZ7v+pggxEqTh3IH5/YfYS+Lzk7DC7wMkoZrVDy7ChhbtrZ7Umad1+dM3D8dg2ZmjKvyWZVwffc+RORyb5FancVnw627jGnVNKHXwFKZ1yzoyeU9HI8NmGXJ/YLk4z0jSapw9old0Ujb5ypBkpO+lW36nX58jydI4BaRuz6CbnCxwFE1BfLZHxA7bzYu1VkXDIYaKSv8PGEqyab5PMJt4N4Av+FsMW6xroZTPPMHSUh8HrCzrD0j46v18FLbjejy3tsgc2P1JY0rJl5FEylywnMPNnlL62intmLtm8Xp5F00jDaiq5tLQyMpwaVVaZv4uX3/0n3c1dvIKjRIFv6g/LkL6qY9YUZhOTmVRoIs6N1dwMx17xj/NoPbUC/0uZ9N2AGWan6ZAigkVTrRPU4+W169fG3gciFtMxIuWLCgpAZrNEkvxbzlTqCWoLxzkBfkmIisn6DKPuJrmHw+ZP9shw1PIv01p1Cjke+urmoZSSPEkZhjCGDsxpbIzIWV4SzAkjfZ0VS2Ls3AjfqhG0rt65tRfnubPehut5jUaFZ8qgdl1i9uXov/kFqAn8EQGQM5Zkk2WeCCplnxR5fg6eKyHHelBCNIN4gFUmpnowz
   template:
     metadata:
       annotations:
@@ -165,12 +165,12 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: cache
+    app: serving-ml-cache
     application: master-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: cache
+  name: serving-ml-cache
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
@@ -184,7 +184,7 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: cache
+    app: serving-ml-cache
   type: ClusterIP
 ---
 apiVersion: extensions/v1beta1
@@ -198,12 +198,12 @@ metadata:
     app.gitlab.com/env: master-dev2
     app.gitlab.com/env.name: master-dev2
   labels:
-    app: cache
+    app: serving-ml-cache
     application: master-dev2-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: cache
+  name: serving-ml-cache
   namespace: serving-ml-144-master-dev2
 spec:
   rules:
@@ -211,7 +211,7 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: cache
+              serviceName: serving-ml-cache
               servicePort: 80
             path: /
   tls:
