@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "dependencies": {
-    "@elastic/elasticsearch": "^7.10.0",
+    "@elastic/elasticsearch": "^7.11.0",
     "@socialgouv/fiches-vdd": "socialgouv/fiches-vdd",
     "node-fetch": "^2.6.1",
-    "ora": "^5.2.0",
+    "ora": "^5.3.0",
     "p-all": "^3.0.0",
     "stopwords-fr": "^0.3.0",
     "unist-util-select": "^3.0.4"
