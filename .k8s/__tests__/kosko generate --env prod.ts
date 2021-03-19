@@ -7,6 +7,6 @@ jest.setTimeout(1000 * 60);
 test("kosko generate --prod", async () => {
   process.env.HARBOR_PROJECT = "cdtn";
   expect(
-    await getEnvManifests("prod", "'!(_*)'", project("serving-ml").prod)
+    await getEnvManifests("prod", "", project("serving-ml").prod)
   ).toMatchSnapshot();
 });

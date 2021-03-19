@@ -2779,12 +2779,12 @@ kosko@^1.0.3:
     import-local "^3.0.2"
 
 kubernetes-models@^1.0.3:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/kubernetes-models/-/kubernetes-models-1.5.2.tgz#695a9f5be19087530dae9462bebc4e23dde5a7eb"
-  integrity sha512-st0l4Q3cmK4XmK5h7P7dQqfChm3a2G7huP1EVMzZ1IoMARommE3lsXOm3BjBEZEFGeS4fLAKj+c8iOYXySK6Nw==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/kubernetes-models/-/kubernetes-models-1.1.0.tgz#0e60c91d2960ff33a1dbb31f65ac0c26f172e631"
+  integrity sha512-FB5Jo5Q2jBTl1eTEqkI/4Ohgy8/yAnRbo2axDaXLISL+LwvofCRdoBChYXWUvEC61UwdbBo7OCdAF+Bzb4nvUw==
   dependencies:
-    "@kubernetes-models/base" "^1.5.2"
-    "@kubernetes-models/validate" "^1.4.2"
+    "@kubernetes-models/base" "^1.2.0"
+    "@kubernetes-models/validate" "^1.1.0"
     tslib "^2.0.3"
 
 kubernetes-models@^1.4.2:
