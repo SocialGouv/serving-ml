@@ -1,5 +1,8 @@
+import { ok } from "assert";
 import env from "@kosko/env";
 import { create } from "@socialgouv/kosko-charts/components/app";
+import type{ Deployment } from "kubernetes-models/apps/v1";
+import { HorizontalPodAutoscaler } from "kubernetes-models/autoscaling/v2beta2";
 import { IIoK8sApiCoreV1HTTPGetAction } from "kubernetes-models/v1";
 import { getHarborImagePath } from "@socialgouv/kosko-charts/utils/getHarborImagePath";
 
@@ -43,6 +46,11 @@ const manifests = create("serving-ml", {
     },
   },
 });
+const deployment = manifests.find(
+  (manifest): manifest is Deployment => manifest.kind === "Deployment"
+);
+ok(deployment);
+
 
 const hpa = new HorizontalPodAutoscaler({
   metadata: deployment.metadata,
