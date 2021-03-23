@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/socialgouv/serving-ml/compare/v1.4.2...v1.5.0) (2021-03-23)
+
+
+### Features
+
+* **k8s:** bring back the hpa ([#83](https://github.com/socialgouv/serving-ml/issues/83)) ([40a9139](https://github.com/socialgouv/serving-ml/commit/40a91391de8b22cbab9a99d032f114cd078d9904)), closes [#54](https://github.com/socialgouv/serving-ml/issues/54)
+
 ## [1.4.2](https://github.com/socialgouv/serving-ml/compare/v1.4.1...v1.4.2) (2021-02-01)
 
 
