@@ -44,4 +44,41 @@ const manifests = create("serving-ml", {
   },
 });
 
-export default [...manifests];
+const hpa = new HorizontalPodAutoscaler({
+  metadata: deployment.metadata,
+  spec: {
+    minReplicas: process.env.CI_COMMIT_TAG ? 2 : 1,
+    maxReplicas: 10,
+
+    metrics: [
+      {
+        resource: {
+          name: "cpu",
+          target: {
+            averageUtilization: 4000,
+            type: "Utilization",
+          },
+        },
+        type: "Resource",
+      },
+      {
+        resource: {
+          name: "memory",
+          target: {
+            averageUtilization: 100,
+            type: "Utilization",
+          },
+        },
+        type: "Resource",
+      },
+    ],
+
+    scaleTargetRef: {
+      apiVersion: deployment.apiVersion,
+      kind: deployment.kind,
+      name: deployment.metadata!.name!,
+    },
+  },
+});
+
+export default [...manifests, hpa];
