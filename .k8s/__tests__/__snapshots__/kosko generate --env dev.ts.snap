@@ -156,5 +156,43 @@ spec:
     - hosts:
         - master-dev2-serving-ml.dev2.fabrique.social.gouv.fr
       secretName: wildcard-crt
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    app.gitlab.com/app: socialgouv-serving-ml
+    app.gitlab.com/env: master-dev2
+    app.gitlab.com/env.name: master-dev2
+  labels:
+    app: serving-ml
+    application: master-dev2-serving-ml
+    owner: serving-ml
+    team: serving-ml
+    cert: wildcard
+  name: serving-ml
+  namespace: serving-ml-144-master-dev2
+spec:
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 4000
+          type: Utilization
+      type: Resource
+    - resource:
+        name: memory
+        target:
+          averageUtilization: 100
+          type: Utilization
+      type: Resource
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: serving-ml
 "
 `;
