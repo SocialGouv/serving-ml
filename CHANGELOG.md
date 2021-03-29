@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/socialgouv/serving-ml/compare/v1.5.0...v1.6.0) (2021-03-29)
+
+
+### Features
+
+* **deps:** update all non-major dependencies docker tags (minor) ([#67](https://github.com/socialgouv/serving-ml/issues/67)) ([0b66ca3](https://github.com/socialgouv/serving-ml/commit/0b66ca3779d2dbc0fe8a1b29337fcaa5d47500c0))
+
 # [1.5.0](https://github.com/socialgouv/serving-ml/compare/v1.4.2...v1.5.0) (2021-03-23)
 
 
