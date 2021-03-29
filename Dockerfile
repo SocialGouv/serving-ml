@@ -1,4 +1,4 @@
-FROM tensorflow/serving:2.3.0
+FROM tensorflow/serving:2.4.1
 
 RUN set -x \
   #
