@@ -15,6 +15,7 @@ Install:
 
 Lint:
   needs: []
+  allow_failure: true
   image: hadolint/hadolint:v1.23.0-debian
   script:
     - hadolint ./Dockerfile
