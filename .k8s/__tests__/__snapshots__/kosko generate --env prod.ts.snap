@@ -90,11 +90,9 @@ spec:
             - secretRef:
                 name: cache-sealed-secret
       volumes:
-        - name: cache
-          azureFile:
-            secretName: cache-sealed-secret
-            shareName: http-cache
-            readOnly: false
+        - persistentVolumeClaim:
+            claimName: serving-ml-cache-0123456
+          name: cache
         - name: config
           configMap:
             name: nginx-config
@@ -235,6 +233,19 @@ data:
         }
       }
     }
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: serving-ml-cache-0123456
+  annotations: {}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  volumeMode: Filesystem
 ---
 apiVersion: apps/v1
 kind: Deployment

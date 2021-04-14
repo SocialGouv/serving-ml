@@ -6,6 +6,8 @@ import { create } from "@socialgouv/kosko-charts/components/app";
 import { getDeployment } from "@socialgouv/kosko-charts/utils/getDeployment";
 import { IIoK8sApiCoreV1HTTPGetAction } from "kubernetes-models/v1";
 import { ConfigMap } from "kubernetes-models/v1/ConfigMap";
+import { PersistentVolumeClaim } from "kubernetes-models/v1/PersistentVolumeClaim";
+
 
 const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   path: "/v1/models/sentqam",
@@ -14,8 +16,6 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
 
 // renovate: datasource=docker depName=nginx versioning=1.19.6
 const NGINX_DOCKER_VERSION = "1.19.6";
-
-const AZURE_SHARE_NAME = "http-cache";
 
 // create a front nginx container that will handle cache
 //
@@ -92,6 +92,8 @@ const configMap = new ConfigMap({
 
 manifests.push(configMap);
 
+const pvcName = `serving-ml-cache-${process.env.CI_COMMIT_SHORT_SHA}`
+
 //@ts-expect-error
 const deploy = getDeployment(manifests);
 ok(deploy.spec);
@@ -99,12 +101,10 @@ ok(deploy.spec.template);
 ok(deploy.spec.template.spec);
 deploy.spec.template.spec.volumes = [
   {
-    name: "cache",
-    azureFile: {
-      secretName: `cache-sealed-secret`,
-      shareName: AZURE_SHARE_NAME,
-      readOnly: false,
+    persistentVolumeClaim: {
+      claimName: pvcName,
     },
+    name: "cache",
   },
   {
     name: "config",
@@ -113,5 +113,23 @@ deploy.spec.template.spec.volumes = [
     },
   },
 ];
+
+const pvc = new PersistentVolumeClaim({
+  metadata: {
+    name: pvcName,
+    annotations: {}
+  },
+  spec: {
+    accessModes: ["ReadWriteOnce"],
+    resources: {
+      requests: {
+        storage: "2Gi",
+      },
+    },
+    volumeMode: "Filesystem"
+  },
+});
+
+manifests.push(pvc)
 
 export default manifests;
