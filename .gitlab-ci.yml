@@ -15,7 +15,7 @@ Install:
 
 Lint:
   needs: []
-  image: hadolint/hadolint:v1.23.0-debian
+  image: hadolint/hadolint:v2.3.0-debian
   script:
     - hadolint ./Dockerfile
 
