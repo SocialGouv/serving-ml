@@ -63,7 +63,7 @@ const hpa = new HorizontalPodAutoscaler({
         resource: {
           name: "cpu",
           target: {
-            averageUtilization: 4000,
+            averageUtilization: 100,
             type: "Utilization",
           },
         },
