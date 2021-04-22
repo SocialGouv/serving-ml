@@ -1,3 +1,11 @@
+## [1.6.1](https://github.com/socialgouv/serving-ml/compare/v1.6.0...v1.6.1) (2021-04-22)
+
+
+### Bug Fixes
+
+* **Dockerfile:** silent curl version update through ubuntu image ([dc0bb93](https://github.com/socialgouv/serving-ml/commit/dc0bb93ce89a3588759e7ad8aed5ec8814e5f334))
+* **gitlab:** update to SocialGouv/gitlab-ci-yml@v21.0.2 ([2fc4c8e](https://github.com/socialgouv/serving-ml/commit/2fc4c8e4b8f3f705ea8f3f641c862b1eb3c90196))
+
 # [1.6.0](https://github.com/socialgouv/serving-ml/compare/v1.5.0...v1.6.0) (2021-03-29)
 
 
