@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/socialgouv/serving-ml/compare/v1.6.1...v1.6.2) (2021-04-22)
+
+
+### Bug Fixes
+
+* **release:** force patch ([79c08d4](https://github.com/socialgouv/serving-ml/commit/79c08d4c995dd84a4322806e57a5115d681115d7))
+
 ## [1.6.1](https://github.com/socialgouv/serving-ml/compare/v1.6.0...v1.6.1) (2021-04-22)
 
 
