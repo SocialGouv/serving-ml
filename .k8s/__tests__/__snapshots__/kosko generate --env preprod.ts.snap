@@ -12,8 +12,8 @@ metadata:
     git/remote: >-
       https://gitlab-ci-token:[MASKED]@gitlab.factory.social.gouv.fr/SocialGouv/serving-ml.git
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: preprod-dev2
-    app.gitlab.com/env.name: preprod-dev2
+    app.gitlab.com/env: preprod-dev42
+    app.gitlab.com/env.name: preprod-dev42
   labels:
     azure-pg-admin-user: serving-ml
     application: v1-2-3-serving-ml
@@ -29,8 +29,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: preprod-dev2
-    app.gitlab.com/env.name: preprod-dev2
+    app.gitlab.com/env: preprod-dev42
+    app.gitlab.com/env.name: preprod-dev42
   labels:
     app: serving-ml
     application: v1-2-3-serving-ml
@@ -50,8 +50,8 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: preprod-dev2
-        app.gitlab.com/env.name: preprod-dev2
+        app.gitlab.com/env: preprod-dev42
+        app.gitlab.com/env.name: preprod-dev42
       labels:
         app: serving-ml
         application: v1-2-3-serving-ml
@@ -112,8 +112,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: preprod-dev2
-    app.gitlab.com/env.name: preprod-dev2
+    app.gitlab.com/env: preprod-dev42
+    app.gitlab.com/env.name: preprod-dev42
   namespace: serving-ml-144-preprod-dev2
 spec:
   ports:
@@ -132,8 +132,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: preprod-dev2
-    app.gitlab.com/env.name: preprod-dev2
+    app.gitlab.com/env: preprod-dev42
+    app.gitlab.com/env.name: preprod-dev42
   labels:
     app: serving-ml
     application: v1-2-3-serving-ml
@@ -144,7 +144,7 @@ metadata:
   namespace: serving-ml-144-preprod-dev2
 spec:
   rules:
-    - host: preprod-serving-ml.dev2.fabrique.social.gouv.fr
+    - host: preprod-serving-ml.dev42.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -153,28 +153,27 @@ spec:
             path: /
   tls:
     - hosts:
-        - preprod-serving-ml.dev2.fabrique.social.gouv.fr
+        - preprod-serving-ml.dev42.fabrique.social.gouv.fr
       secretName: wildcard-crt
 ---
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
+  name: serving-ml
+  namespace: serving-ml-144-preprod-dev2
   annotations:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: preprod-dev2
-    app.gitlab.com/env.name: preprod-dev2
+    app.gitlab.com/env: preprod-dev42
+    app.gitlab.com/env.name: preprod-dev42
   labels:
     app: serving-ml
     application: v1-2-3-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
-  name: serving-ml
-  namespace: serving-ml-144-preprod-dev2
 spec:
-  minReplicas: 2
   maxReplicas: 10
   metrics:
     - resource:
@@ -189,6 +188,7 @@ spec:
           averageUtilization: 100
           type: Utilization
       type: Resource
+  minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
