@@ -56,8 +56,14 @@ export default async () => {
   ok(deployment);
   const hpa = createAutoscale(deployment);
   ok(hpa.spec);
-  hpa.spec.minReplicas = 2;
+  hpa.spec.minReplicas = process.env.CI_COMMIT_TAG ? 2 : 1;
   ok(deployment.metadata);
-  updateMetadata(hpa, deployment.metadata as any);
+  ok(deployment.metadata.namespace);
+  updateMetadata(hpa, {
+    annotations: deployment.metadata.annotations || {},
+    labels: deployment.metadata.labels || {},
+    namespace: { name: deployment.metadata.namespace },
+    name: deployment.metadata.name,
+  });
   return [...manifests, hpa];
 };
