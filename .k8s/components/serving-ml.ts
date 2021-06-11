@@ -1,8 +1,9 @@
 import { ok } from "assert";
 import env from "@kosko/env";
 import { create } from "@socialgouv/kosko-charts/components/app";
-import type{ Deployment } from "kubernetes-models/apps/v1";
-import { HorizontalPodAutoscaler } from "kubernetes-models/autoscaling/v2beta2";
+import { createAutoscale } from "@socialgouv/kosko-charts/components/autoscale";
+import { updateMetadata } from "@socialgouv/kosko-charts/utils/updateMetadata";
+import type { Deployment } from "kubernetes-models/apps/v1";
 import { IIoK8sApiCoreV1HTTPGetAction } from "kubernetes-models/v1";
 import { getHarborImagePath } from "@socialgouv/kosko-charts/utils/getHarborImagePath";
 
@@ -11,7 +12,7 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   port: "http",
 };
 
-const manifests = create("serving-ml", {
+const asyncManifests = create("serving-ml", {
   env,
   config: {
     image: getHarborImagePath({ name: "serving-ml" }),
@@ -46,47 +47,17 @@ const manifests = create("serving-ml", {
     },
   },
 });
-const deployment = manifests.find(
-  (manifest): manifest is Deployment => manifest.kind === "Deployment"
-);
-ok(deployment);
 
-
-const hpa = new HorizontalPodAutoscaler({
-  metadata: deployment.metadata,
-  spec: {
-    minReplicas: process.env.CI_COMMIT_TAG ? 2 : 1,
-    maxReplicas: 10,
-
-    metrics: [
-      {
-        resource: {
-          name: "cpu",
-          target: {
-            averageUtilization: 100,
-            type: "Utilization",
-          },
-        },
-        type: "Resource",
-      },
-      {
-        resource: {
-          name: "memory",
-          target: {
-            averageUtilization: 100,
-            type: "Utilization",
-          },
-        },
-        type: "Resource",
-      },
-    ],
-
-    scaleTargetRef: {
-      apiVersion: deployment.apiVersion,
-      kind: deployment.kind,
-      name: deployment.metadata!.name!,
-    },
-  },
-});
-
-export default [...manifests, hpa];
+export default async () => {
+  const manifests = await asyncManifests;
+  const deployment = manifests.find(
+    (manifest): manifest is Deployment => manifest.kind === "Deployment"
+  );
+  ok(deployment);
+  const hpa = createAutoscale(deployment);
+  ok(hpa.spec);
+  hpa.spec.minReplicas = 2;
+  ok(deployment.metadata);
+  updateMetadata(hpa, deployment.metadata as any);
+  return [...manifests, hpa];
+};
