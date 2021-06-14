@@ -9,8 +9,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: prod
+    app.gitlab.com/env.name: prod
   labels:
     app: serving-ml
     application: serving-ml
@@ -29,8 +29,8 @@ spec:
         kapp.k14s.io/disable-default-ownership-label-rules: ''
         kapp.k14s.io/disable-default-label-scoping-rules: ''
         app.gitlab.com/app: socialgouv-serving-ml
-        app.gitlab.com/env: prod2
-        app.gitlab.com/env.name: prod2
+        app.gitlab.com/env: prod
+        app.gitlab.com/env.name: prod
       labels:
         app: serving-ml
         application: serving-ml
@@ -89,8 +89,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: prod
+    app.gitlab.com/env.name: prod
   namespace: serving-ml
 spec:
   ports:
@@ -111,8 +111,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: prod
+    app.gitlab.com/env.name: prod
   labels:
     app: serving-ml
     application: serving-ml
@@ -143,8 +143,8 @@ metadata:
     kapp.k14s.io/disable-default-ownership-label-rules: ''
     kapp.k14s.io/disable-default-label-scoping-rules: ''
     app.gitlab.com/app: socialgouv-serving-ml
-    app.gitlab.com/env: prod2
-    app.gitlab.com/env.name: prod2
+    app.gitlab.com/env: prod
+    app.gitlab.com/env.name: prod
   labels:
     app: serving-ml
     application: serving-ml
