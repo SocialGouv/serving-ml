@@ -1,3 +1,15 @@
+## [1.6.3](https://github.com/socialgouv/serving-ml/compare/v1.6.2...v1.6.3) (2021-06-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node to ^14.17.3 ([#96](https://github.com/socialgouv/serving-ml/issues/96)) ([ff074d4](https://github.com/socialgouv/serving-ml/commit/ff074d45b4ccbd94561f915dc86d21022cb524ec))
+* **deps:** update dependency ora to ^5.4.1 ([#97](https://github.com/socialgouv/serving-ml/issues/97)) ([f66dac5](https://github.com/socialgouv/serving-ml/commit/f66dac575d0c10ebedbd793972746ad08952e882))
+* **deps:** update dependency p-all to v4 ([#103](https://github.com/socialgouv/serving-ml/issues/103)) ([8be849f](https://github.com/socialgouv/serving-ml/commit/8be849fd25dc6e1cff624bfd20b520664958fda3))
+* **deps:** update dependency ts-node to v10 ([#104](https://github.com/socialgouv/serving-ml/issues/104)) ([97bf92c](https://github.com/socialgouv/serving-ml/commit/97bf92c58f028fb6a7a1101f1fd89650cd3efdf5))
+* **deps:** update dependency typescript to ^4.3.2 ([#98](https://github.com/socialgouv/serving-ml/issues/98)) ([5704ad2](https://github.com/socialgouv/serving-ml/commit/5704ad29117bc5767651d45728e51f85afbdf83c))
+* **deps:** update dependency unist-util-select to v4 ([#105](https://github.com/socialgouv/serving-ml/issues/105)) ([ac76d0f](https://github.com/socialgouv/serving-ml/commit/ac76d0f0665de2077cb66e762620528f88ade122))
+
 ## [1.6.2](https://github.com/socialgouv/serving-ml/compare/v1.6.1...v1.6.2) (2021-04-22)
 
 
