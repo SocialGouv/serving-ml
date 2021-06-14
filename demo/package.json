@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "Apache-2.0",
   "dependencies": {
-    "@elastic/elasticsearch": "^7.11.0",
+    "@elastic/elasticsearch": "^7.13.0",
     "@socialgouv/fiches-vdd": "socialgouv/fiches-vdd",
     "node-fetch": "^2.6.1",
     "ora": "^5.4.1",
