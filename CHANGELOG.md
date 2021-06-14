@@ -1,3 +1,11 @@
+## [1.6.4](https://github.com/socialgouv/serving-ml/compare/v1.6.3...v1.6.4) (2021-06-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @elastic/elasticsearch to ^7.13.0 ([#95](https://github.com/socialgouv/serving-ml/issues/95)) ([f40514a](https://github.com/socialgouv/serving-ml/commit/f40514a18f2f5b2159b40fe3aa66a25f55dc8a08))
+* **deps:** update dependency @socialgouv/kosko-charts to ^6.1.0 ([#106](https://github.com/socialgouv/serving-ml/issues/106)) ([544af0e](https://github.com/socialgouv/serving-ml/commit/544af0ed5692ee6c1d9156eeefac198775c7c961))
+
 ## [1.6.3](https://github.com/socialgouv/serving-ml/compare/v1.6.2...v1.6.3) (2021-06-14)
 
 
