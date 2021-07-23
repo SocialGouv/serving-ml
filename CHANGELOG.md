@@ -1,3 +1,12 @@
+## [1.6.5](https://github.com/socialgouv/serving-ml/compare/v1.6.4...v1.6.5) (2021-07-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node to ^14.17.5 ([#112](https://github.com/socialgouv/serving-ml/issues/112)) ([5f323e9](https://github.com/socialgouv/serving-ml/commit/5f323e994e805b0f2162fb0fabf7dd4b6aafde86))
+* **deps:** update dependency ts-node to ^10.1.0 ([#116](https://github.com/socialgouv/serving-ml/issues/116)) ([028e7e5](https://github.com/socialgouv/serving-ml/commit/028e7e59182b758349ef889db4cdd48ee3dfdf72))
+* **deps:** update dependency typescript to ^4.3.5 ([#110](https://github.com/socialgouv/serving-ml/issues/110)) ([78e8625](https://github.com/socialgouv/serving-ml/commit/78e86252d02066c5e9ca87842fbf07d2e3661817))
+
 ## [1.6.4](https://github.com/socialgouv/serving-ml/compare/v1.6.3...v1.6.4) (2021-06-14)
 
 
