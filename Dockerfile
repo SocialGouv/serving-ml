@@ -5,15 +5,16 @@ RUN set -x \
   && apt-get update \
   #
   && apt-get install -y --no-install-recommends \
-    curl=7.58.0-2ubuntu3.13 \
+  # renovate: datasource=repology depName=ubuntu_18_04/curl versioning=loose
+  curl=7.58.0 \
   #
   && apt-get purge -y --auto-remove \
   && apt-get -y clean \
   && apt-get -y autoclean \
   && apt-get -y autoremove \
   && rm -rf \
-    /var/lib/apt/lists/* \
-    /var/cache/debconf/*-old \
+  /var/lib/apt/lists/* \
+  /var/cache/debconf/*-old \
   ;
 
 ENV MODEL_NAME sentqam
