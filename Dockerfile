@@ -5,8 +5,7 @@ RUN set -x \
   && apt-get update \
   #
   && apt-get install -y --no-install-recommends \
-  # renovate: datasource=repology depName=ubuntu_18_04/curl versioning=loose
-  curl=7.58.0 \
+  curl=7.58.0-2ubuntu3.14 \
   #
   && apt-get purge -y --auto-remove \
   && apt-get -y clean \
