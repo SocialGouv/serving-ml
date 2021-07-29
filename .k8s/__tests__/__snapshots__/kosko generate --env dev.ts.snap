@@ -125,7 +125,7 @@ spec:
     app: serving-ml
   type: ClusterIP
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -149,9 +149,12 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: serving-ml
-              servicePort: 80
+              service:
+                name: serving-ml
+                port:
+                  name: http
             path: /
+            pathType: Prefix
   tls:
     - hosts:
         - master-dev42-serving-ml.dev42.fabrique.social.gouv.fr
