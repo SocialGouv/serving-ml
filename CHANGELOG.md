@@ -1,3 +1,12 @@
+## [1.6.6](https://github.com/socialgouv/serving-ml/compare/v1.6.5...v1.6.6) (2021-07-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @socialgouv/kosko-charts to v9 ([#113](https://github.com/socialgouv/serving-ml/issues/113)) ([19aadf6](https://github.com/socialgouv/serving-ml/commit/19aadf6a3db3955f6647c9c3b7aa750c9186ec0e))
+* **docker:** update curl locked version ([3b13623](https://github.com/socialgouv/serving-ml/commit/3b136239dc4896088c67ef14db18b265eb9d2974))
+* **docker:** update to ubuntu:18.04 curl version ([bbf3916](https://github.com/socialgouv/serving-ml/commit/bbf391669000ffa33bf1d9e74cecd0aa414c5f51))
+
 ## [1.6.5](https://github.com/socialgouv/serving-ml/compare/v1.6.4...v1.6.5) (2021-07-23)
 
 
