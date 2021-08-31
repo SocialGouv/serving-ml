@@ -3,9 +3,9 @@
 
 
 "@elastic/elasticsearch@^7.13.0":
-  version "7.14.0"
-  resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.14.0.tgz#250d939c2dee41f92282ca8916b0eb11bca61094"
-  integrity sha512-BlxqykcNtdBxo0mF7UQ1OsUxoVOOnEaeF70u2N4jpePih9paCOOotTWfFSDrtEw0TWv1CZlzCGD3TD5+8ASx8A==
+  version "7.14.1"
+  resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.14.1.tgz#da2f86a550e75c093cc1114115e8719cc7edbfc7"
+  integrity sha512-pnbh8ddXdxlQdZZfMCwxIIv8KscdhJysVI4ZAc9pBl/cUrLinAj+0gIyTgWA30cOFoKZSLlB9ZXGx6R0SJkIwg==
   dependencies:
     debug "^4.3.1"
     hpagent "^0.1.1"
@@ -14,8 +14,8 @@
 
 "@socialgouv/fiches-vdd@socialgouv/fiches-vdd":
   version "2.197.0"
-  uid "1aa2fbd42b349157290ece79e1c399ac114d47a4"
-  resolved "https://codeload.github.com/socialgouv/fiches-vdd/tar.gz/1aa2fbd42b349157290ece79e1c399ac114d47a4"
+  uid c9c9f1a417bfc4b68f75df90419576fee243f8bd
+  resolved "https://codeload.github.com/socialgouv/fiches-vdd/tar.gz/c9c9f1a417bfc4b68f75df90419576fee243f8bd"
   dependencies:
     node-fetch "^2.6.1"
     ora "^5.4.1"
@@ -167,9 +167,9 @@ concat-map@0.0.1:
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
 core-util-is@~1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
-  integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
+  integrity sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==
 
 css-selector-parser@^1.0.0:
   version "1.4.1"
