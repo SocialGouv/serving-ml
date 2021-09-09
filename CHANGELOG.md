@@ -1,3 +1,10 @@
+## [1.6.8](https://github.com/socialgouv/serving-ml/compare/v1.6.7...v1.6.8) (2021-09-09)
+
+
+### Bug Fixes
+
+* **ci:** kube 1.2 ([#134](https://github.com/socialgouv/serving-ml/issues/134)) ([d488f98](https://github.com/socialgouv/serving-ml/commit/d488f98ca772ca3f69093cf8dd2ccf36e2854750))
+
 ## [1.6.7](https://github.com/socialgouv/serving-ml/compare/v1.6.6...v1.6.7) (2021-08-20)
 
 
