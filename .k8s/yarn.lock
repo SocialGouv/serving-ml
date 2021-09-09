@@ -546,7 +546,7 @@
     tslib "^2.1.0"
     type-fest "^0.20.2"
 
-"@kosko/env@2.0.1":
+"@kosko/env@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@kosko/env/-/env-2.0.1.tgz#b6b4ca0278a6b5633346afa13f9c58f8146e2da5"
   integrity sha512-4XsKXKppgyrM35HwD1nAUWbb3wxCc89Aec6s+onSbiL4B7jesDI8n/pSQZEBbn5MePJh5O0DTEjCnIBEjzdCaQ==
@@ -606,25 +606,6 @@
     is-plain-object "^5.0.0"
     tslib "^2.3.0"
 
-"@kubernetes-models/base@^1.5.5":
-  version "1.5.5"
-  resolved "https://registry.yarnpkg.com/@kubernetes-models/base/-/base-1.5.5.tgz#6bff274f32e081d15f084853be1322380d2a41b2"
-  integrity sha512-0XoupDEOE+qOy3BpAprcqGuI8CmRW1KwVDfXPsfUkU1uxo6fwv5VeNVzTJ0MHESLUNybgQdbdnm+iysbyFBuug==
-  dependencies:
-    "@kubernetes-models/validate" "^1.6.0"
-    is-plain-object "^5.0.0"
-    tslib "^2.2.0"
-
-"@kubernetes-models/sealed-secrets@^1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@kubernetes-models/sealed-secrets/-/sealed-secrets-1.6.3.tgz#21aea46a2a8e91ccc3b3eb6310df7bd086fbdf80"
-  integrity sha512-n/QT4Yxtfooo+xthZaO4ewIRP+UXbdh6h+CI6gGmYVsjR0pGSai9eI9D+KDYrexlVOM0FqoZgIm1+DAVsrv5VA==
-  dependencies:
-    "@kubernetes-models/base" "^1.5.5"
-    "@kubernetes-models/validate" "^1.6.0"
-    kubernetes-models "^1.7.1"
-    tslib "^2.2.0"
-
 "@kubernetes-models/sealed-secrets@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@kubernetes-models/sealed-secrets/-/sealed-secrets-2.0.2.tgz#76fda974c52abc6cf3414b32ab4243819889c005"
@@ -643,15 +624,6 @@
     ajv "^8.6.2"
     ajv-formats "^2.1.0"
     tslib "^2.3.0"
-
-"@kubernetes-models/validate@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@kubernetes-models/validate/-/validate-1.6.0.tgz#d8189ff268bd73a13d717d83fde1ff0ef64207f0"
-  integrity sha512-OIZ7X42s9UDr9scSuqzlHMAfHq7g2ZQ5XeivJN9Ozy5L7QkaT13Um4bbLrbGFeUJlhQMWfUbBxXbEBIB4ggQ6A==
-  dependencies:
-    ajv "^8.5.0"
-    ajv-formats "^2.1.0"
-    tslib "^2.2.0"
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
@@ -693,10 +665,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@socialgouv/kosko-charts@^9.2.4":
-  version "9.2.4"
-  resolved "https://registry.yarnpkg.com/@socialgouv/kosko-charts/-/kosko-charts-9.2.4.tgz#739ac457cf19e05c8fae87ca98c22a29cc65cbf4"
-  integrity sha512-M+kANSSgCmKugLeUNtk0SRdU8/ZXxa+fDYD0zU+oHt/XYT2/pCNxHjX6HFwLGdXP387zyLZ7D3642dooIXbR6w==
+"@socialgouv/kosko-charts@^9.5.5":
+  version "9.5.5"
+  resolved "https://registry.yarnpkg.com/@socialgouv/kosko-charts/-/kosko-charts-9.5.5.tgz#de0ed3ba763fb132465736569d181fd9c9eb5710"
+  integrity sha512-0YJ+Y+othrQBFzdRhc104L2+uOAEcvKpgXwv6q/HplVDNWYxFj3JZqOvgbCb5YLNNccvUpj+LLB+a0XGWzQNpg==
   dependencies:
     "@kubernetes-models/sealed-secrets" "^2.0.2"
     "@sindresorhus/is" "^4.0.1"
@@ -872,7 +844,7 @@ ajv-formats@^2.1.0:
   dependencies:
     ajv "^8.0.0"
 
-ajv@^8.0.0, ajv@^8.5.0, ajv@^8.6.2:
+ajv@^8.0.0, ajv@^8.6.2:
   version "8.6.2"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.2.tgz#2fb45e0e5fcbc0813326c1c3da535d1881bb0571"
   integrity sha512-9807RlWAgT564wT+DjeyU5OFMPjmzxVobvDFmNAhY+5zD6A2ly3jDp6sgnfyDtlIQ+7H97oc/DGCzzfu9rjw9w==
@@ -2348,15 +2320,6 @@ kubernetes-models@2.0.2, kubernetes-models@^2.0.2:
     "@kubernetes-models/validate" "2.0.1"
     tslib "^2.3.0"
 
-kubernetes-models@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/kubernetes-models/-/kubernetes-models-1.7.1.tgz#e699a3b9454e219ff08d30fc2edaa81c9d3fd127"
-  integrity sha512-x9lI7ravBEDDhKp71H2MSznSWoQFlzWNCQ3WAtYhRROUTCXOQjS6qpqtLnXWtV8mGoHsJR/JNlNPJ0eyliv5VQ==
-  dependencies:
-    "@kubernetes-models/base" "^1.5.5"
-    "@kubernetes-models/validate" "^1.6.0"
-    tslib "^2.2.0"
-
 leven@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
@@ -3037,7 +3000,7 @@ ts-node@^10.1.0:
     source-map-support "^0.5.17"
     yn "3.1.1"
 
-tslib@^2.1.0, tslib@^2.2.0, tslib@^2.3.0:
+tslib@^2.1.0, tslib@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==

@@ -19,6 +19,7 @@ metadata:
   labels:
     azure-pg-admin-user: serving-ml
     application: master-dev42-serving-ml
+    component: master-dev42-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
@@ -36,6 +37,7 @@ metadata:
   labels:
     app: serving-ml
     application: master-dev42-serving-ml
+    component: master-dev42-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
@@ -57,6 +59,7 @@ spec:
       labels:
         app: serving-ml
         application: master-dev42-serving-ml
+        component: master-dev42-serving-ml
         owner: serving-ml
         team: serving-ml
         cert: wildcard
@@ -107,6 +110,7 @@ metadata:
   labels:
     app: serving-ml
     application: master-dev42-serving-ml
+    component: master-dev42-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
@@ -140,6 +144,7 @@ metadata:
   labels:
     app: serving-ml
     application: master-dev42-serving-ml
+    component: master-dev42-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
@@ -176,6 +181,7 @@ metadata:
   labels:
     app: serving-ml
     application: master-dev42-serving-ml
+    component: master-dev42-serving-ml
     owner: serving-ml
     team: serving-ml
     cert: wildcard
