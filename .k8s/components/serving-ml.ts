@@ -5,17 +5,20 @@ import { createAutoscale } from "@socialgouv/kosko-charts/components/autoscale";
 import { updateMetadata } from "@socialgouv/kosko-charts/utils/updateMetadata";
 import type { Deployment } from "kubernetes-models/apps/v1";
 import { IIoK8sApiCoreV1HTTPGetAction } from "kubernetes-models/v1";
-import { getHarborImagePath } from "@socialgouv/kosko-charts/utils/getHarborImagePath";
+import environments from '@socialgouv/kosko-charts/environments';
 
 const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   path: "/v1/models/sentqam",
   port: "http",
 };
 
+const ciEnv = environments(process.env);
+const version = ciEnv.tag || `sha-${ciEnv.sha}`;
+
 const asyncManifests = create("serving-ml", {
   env,
   config: {
-    image: getHarborImagePath({ name: "serving-ml" }),
+    image: `ghcr.io/socialgouv/cdtn/serving-ml:${version}`,
     containerPort: 8501,
     container: {
       livenessProbe: {
@@ -56,7 +59,7 @@ export default async () => {
   ok(deployment);
   const hpa = createAutoscale(deployment);
   ok(hpa.spec);
-  hpa.spec.minReplicas = process.env.CI_COMMIT_TAG ? 2 : 1;
+  hpa.spec.minReplicas = ciEnv.isProduction ? 2 : 1;
   ok(deployment.metadata);
   ok(deployment.metadata.namespace);
   updateMetadata(hpa, {
