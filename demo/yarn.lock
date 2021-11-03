@@ -22,6 +22,11 @@
     unzipper "^0.10.11"
     xml-js "^1.6.11"
 
+"@types/unist@^2.0.0":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
+  integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
+
 aggregate-error@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-4.0.0.tgz#83dbdb53a0d500721281d22e19eee9bc352a89cd"
@@ -504,11 +509,12 @@ unist-util-is@^5.0.0:
   resolved "https://registry.yarnpkg.com/unist-util-is/-/unist-util-is-5.1.1.tgz#e8aece0b102fa9bc097b0fef8f870c496d4a6236"
   integrity sha512-F5CZ68eYzuSvJjGhCLPL3cYx45IxkqXSetCcRgUXtbcm50X2L9oOWQlfUfDdAf+6Pd27YDblBfdtmsThXmwpbQ==
 
-unist-util-select@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/unist-util-select/-/unist-util-select-4.0.0.tgz#8bd8ea171d937a56f56bf849861242a232d37466"
-  integrity sha512-UJsER0ubbBy8KR+5zZpcF/9/aApWOzjNqfseMjcw1h0wAUqbxAf56mMewspAqXtGKiwBylnYB+PbD/XqwcYrWg==
+unist-util-select@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/unist-util-select/-/unist-util-select-4.0.1.tgz#d1913d7a0ab4e5d4b6dd1b33b3ea79b9f9645b0b"
+  integrity sha512-zPozyEo5vr1csbHf1TqlQrnuLVJ0tNMo63og3HrnINh2+OIDAgQpqHVr+0BMw1DIVHJV8ft/e6BZqtvD1Y5enw==
   dependencies:
+    "@types/unist" "^2.0.0"
     css-selector-parser "^1.0.0"
     nth-check "^2.0.0"
     unist-util-is "^5.0.0"
