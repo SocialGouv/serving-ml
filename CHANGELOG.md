@@ -1,3 +1,10 @@
+## [1.6.9-alpha.4](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.3...v1.6.9-alpha.4) (2021-11-04)
+
+
+### Bug Fixes
+
+* Deploy preproduction from master, alpha, beta and next branches ([6643697](https://github.com/SocialGouv/serving-ml/commit/6643697a5cc781152e10b8d63849a38163b45c65))
+
 ## [1.6.9-alpha.3](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.2...v1.6.9-alpha.3) (2021-11-04)
 
 
