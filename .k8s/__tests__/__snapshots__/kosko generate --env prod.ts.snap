@@ -40,7 +40,7 @@ spec:
         team: serving-ml
     spec:
       containers:
-        - image: harbor.fabrique.social.gouv.fr/cdtn/serving-ml:1.2.3
+        - image: ghcr.io/socialgouv/cdtn/serving-ml:v1.2.3
           livenessProbe:
             failureThreshold: 6
             httpGet:
