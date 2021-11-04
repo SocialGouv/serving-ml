@@ -1,3 +1,10 @@
+## [1.6.9](https://github.com/SocialGouv/serving-ml/compare/v1.6.8...v1.6.9) (2021-11-04)
+
+
+### Bug Fixes
+
+* SocialGouv actions deployment ([#136](https://github.com/SocialGouv/serving-ml/issues/136)) ([55ce095](https://github.com/SocialGouv/serving-ml/commit/55ce0958b725292fd08a40cd44eef5debedc204f))
+
 ## [1.6.9-alpha.8](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.7...v1.6.9-alpha.8) (2021-11-04)
 
 
