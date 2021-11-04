@@ -1,3 +1,13 @@
+## [1.6.9-alpha.1](https://github.com/SocialGouv/serving-ml/compare/v1.6.8...v1.6.9-alpha.1) (2021-11-04)
+
+
+### Bug Fixes
+
+* Remove semrel npm plugin ([699573d](https://github.com/SocialGouv/serving-ml/commit/699573dad2af9cb46b815edccba1a7846e74f0da))
+* SocialGouv actions deployment ([646d1bd](https://github.com/SocialGouv/serving-ml/commit/646d1bd37ffae7647b6cdddbe41e43300b495e0a))
+* Update curl version ([bd540e4](https://github.com/SocialGouv/serving-ml/commit/bd540e4567440e8a9d2b0df2a5f072d830066f6a))
+* Use local semantic release config ([1a09d62](https://github.com/SocialGouv/serving-ml/commit/1a09d6269c0412c324a0b372a32f5a663122b775))
+
 ## [1.6.8](https://github.com/socialgouv/serving-ml/compare/v1.6.7...v1.6.8) (2021-09-09)
 
 
