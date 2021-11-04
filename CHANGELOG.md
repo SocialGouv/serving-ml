@@ -1,3 +1,62 @@
+## [1.6.9-alpha.8](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.7...v1.6.9-alpha.8) (2021-11-04)
+
+
+### Bug Fixes
+
+* Use k8s-manifests in production workflow ([4929c52](https://github.com/SocialGouv/serving-ml/commit/4929c52ef8401d4c5568de4345b1cc1d3ab14a9d))
+
+## [1.6.9-alpha.7](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.6...v1.6.9-alpha.7) (2021-11-04)
+
+
+### Bug Fixes
+
+* Add production workflow ([1a1e6f1](https://github.com/SocialGouv/serving-ml/commit/1a1e6f137e06bc8b1e93107cad2a21fc7d11d1a4))
+
+## [1.6.9-alpha.6](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.5...v1.6.9-alpha.6) (2021-11-04)
+
+
+### Bug Fixes
+
+* Update preprod tests snapshots ([3dbcad3](https://github.com/SocialGouv/serving-ml/commit/3dbcad3ac4add60e8159b036a622fa39331fc6a5))
+
+## [1.6.9-alpha.5](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.4...v1.6.9-alpha.5) (2021-11-04)
+
+
+### Bug Fixes
+
+* Add environment to build and register action ([7a3c8a1](https://github.com/SocialGouv/serving-ml/commit/7a3c8a1ede752bc67978786eaa9501aefa029496))
+
+## [1.6.9-alpha.4](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.3...v1.6.9-alpha.4) (2021-11-04)
+
+
+### Bug Fixes
+
+* Deploy preproduction from master, alpha, beta and next branches ([6643697](https://github.com/SocialGouv/serving-ml/commit/6643697a5cc781152e10b8d63849a38163b45c65))
+
+## [1.6.9-alpha.3](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.2...v1.6.9-alpha.3) (2021-11-04)
+
+
+### Bug Fixes
+
+* Rename preproduction workflow ([6f566cf](https://github.com/SocialGouv/serving-ml/commit/6f566cfb873b8364b40acc623ccdb23f4da0a05e))
+
+## [1.6.9-alpha.2](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.1...v1.6.9-alpha.2) (2021-11-04)
+
+
+### Bug Fixes
+
+* Add preproduction workflow ([dbc0993](https://github.com/SocialGouv/serving-ml/commit/dbc0993dcf3a9347365113bc5cdc203a5b42cc0f))
+
+## [1.6.9-alpha.1](https://github.com/SocialGouv/serving-ml/compare/v1.6.8...v1.6.9-alpha.1) (2021-11-04)
+
+
+### Bug Fixes
+
+* Remove semrel npm plugin ([699573d](https://github.com/SocialGouv/serving-ml/commit/699573dad2af9cb46b815edccba1a7846e74f0da))
+* SocialGouv actions deployment ([646d1bd](https://github.com/SocialGouv/serving-ml/commit/646d1bd37ffae7647b6cdddbe41e43300b495e0a))
+* Update curl version ([bd540e4](https://github.com/SocialGouv/serving-ml/commit/bd540e4567440e8a9d2b0df2a5f072d830066f6a))
+* Use local semantic release config ([1a09d62](https://github.com/SocialGouv/serving-ml/commit/1a09d6269c0412c324a0b372a32f5a663122b775))
+
 ## [1.6.8](https://github.com/socialgouv/serving-ml/compare/v1.6.7...v1.6.8) (2021-09-09)
 
 
