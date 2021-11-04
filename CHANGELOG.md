@@ -1,3 +1,10 @@
+## [1.6.9-alpha.5](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.4...v1.6.9-alpha.5) (2021-11-04)
+
+
+### Bug Fixes
+
+* Add environment to build and register action ([7a3c8a1](https://github.com/SocialGouv/serving-ml/commit/7a3c8a1ede752bc67978786eaa9501aefa029496))
+
 ## [1.6.9-alpha.4](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.3...v1.6.9-alpha.4) (2021-11-04)
 
 
