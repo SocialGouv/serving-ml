@@ -1,3 +1,10 @@
+## [1.6.9-alpha.3](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.2...v1.6.9-alpha.3) (2021-11-04)
+
+
+### Bug Fixes
+
+* Rename preproduction workflow ([6f566cf](https://github.com/SocialGouv/serving-ml/commit/6f566cfb873b8364b40acc623ccdb23f4da0a05e))
+
 ## [1.6.9-alpha.2](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.1...v1.6.9-alpha.2) (2021-11-04)
 
 
