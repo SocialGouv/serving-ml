@@ -1,3 +1,10 @@
+## [1.6.9-alpha.6](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.5...v1.6.9-alpha.6) (2021-11-04)
+
+
+### Bug Fixes
+
+* Update preprod tests snapshots ([3dbcad3](https://github.com/SocialGouv/serving-ml/commit/3dbcad3ac4add60e8159b036a622fa39331fc6a5))
+
 ## [1.6.9-alpha.5](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.4...v1.6.9-alpha.5) (2021-11-04)
 
 
