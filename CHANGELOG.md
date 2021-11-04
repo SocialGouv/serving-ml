@@ -1,3 +1,10 @@
+## [1.6.9-alpha.8](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.7...v1.6.9-alpha.8) (2021-11-04)
+
+
+### Bug Fixes
+
+* Use k8s-manifests in production workflow ([4929c52](https://github.com/SocialGouv/serving-ml/commit/4929c52ef8401d4c5568de4345b1cc1d3ab14a9d))
+
 ## [1.6.9-alpha.7](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.6...v1.6.9-alpha.7) (2021-11-04)
 
 
