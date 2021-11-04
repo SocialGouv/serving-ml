@@ -13,7 +13,7 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
 };
 
 const ciEnv = environments(process.env);
-const version = ciEnv.tag || `sha-${ciEnv.sha}`;
+const version = ciEnv.isPreProduction ? `preprod-${ciEnv.sha}` : ciEnv.tag || `sha-${ciEnv.sha}`;
 
 const asyncManifests = create("serving-ml", {
   env,

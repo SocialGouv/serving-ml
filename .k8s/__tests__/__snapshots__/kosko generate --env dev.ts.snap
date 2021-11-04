@@ -161,7 +161,7 @@ metadata:
   namespace: serving-ml-mybranch
 spec:
   rules:
-    - host: serving-ml-mybranch.dev2.fabrique.social.gouv.fr
+    - host: serving-ml-mybranch.dev.fabrique.social.gouv.fr
       http:
         paths:
           - backend:
@@ -173,7 +173,7 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - serving-ml-mybranch.dev2.fabrique.social.gouv.fr
+        - serving-ml-mybranch.dev.fabrique.social.gouv.fr
       secretName: wildcard-crt
 ---
 apiVersion: autoscaling/v2beta2

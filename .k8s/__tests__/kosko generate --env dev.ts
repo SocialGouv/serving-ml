@@ -10,7 +10,7 @@ test("kosko generate --dev", async () => {
     await getEnvManifests("dev", "", {
       ...project("serving-ml").dev,
       RANCHER_PROJECT_ID: "c-bd7z2:p-wcxt4",
-      KUBE_NAMESPACE: "serving-ml-144-master-dev2",
+      SOCIALGOUV_BASE_DOMAIN: "dev.fabrique.social.gouv.fr"
     })
   ).toMatchSnapshot();
 });
