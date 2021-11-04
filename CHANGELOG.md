@@ -1,3 +1,10 @@
+## [1.6.9-alpha.7](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.6...v1.6.9-alpha.7) (2021-11-04)
+
+
+### Bug Fixes
+
+* Add production workflow ([1a1e6f1](https://github.com/SocialGouv/serving-ml/commit/1a1e6f137e06bc8b1e93107cad2a21fc7d11d1a4))
+
 ## [1.6.9-alpha.6](https://github.com/SocialGouv/serving-ml/compare/v1.6.9-alpha.5...v1.6.9-alpha.6) (2021-11-04)
 
 
