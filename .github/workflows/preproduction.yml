@@ -2,14 +2,14 @@ name: Review
 
 on:
   push:
-    branches-ignore:
+    branches:
       - master
     tags-ignore:
       - v*
 
 concurrency:
+  group: preproduction
   cancel-in-progress: true
-  group: review-${{ github.ref }}
 
 jobs:
 
@@ -43,7 +43,7 @@ jobs:
     - name: Use autodevops manifests generation
       uses: SocialGouv/actions/k8s-manifests@v1
       with:
-        environment: "dev"
+        environment: preprod
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
@@ -59,7 +59,7 @@ jobs:
     - name: Use autodevops deployment
       uses: SocialGouv/actions/autodevops-deploy@v1
       with:
-        environment: "dev"
+        environment: preprod
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
