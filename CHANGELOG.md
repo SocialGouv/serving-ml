@@ -1,3 +1,10 @@
+## [1.6.11](https://github.com/SocialGouv/serving-ml/compare/v1.6.10...v1.6.11) (2021-11-15)
+
+
+### Bug Fixes
+
+* **deps:** update all dependencies ([#140](https://github.com/SocialGouv/serving-ml/issues/140)) ([ea9a034](https://github.com/SocialGouv/serving-ml/commit/ea9a034e40b066f559ddf2738ac3005135c01037))
+
 ## [1.6.10](https://github.com/SocialGouv/serving-ml/compare/v1.6.9...v1.6.10) (2021-11-08)
 
 
