@@ -1,3 +1,10 @@
+## [1.6.12](https://github.com/SocialGouv/serving-ml/compare/v1.6.11...v1.6.12) (2021-11-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node to ^14.17.34 ([#141](https://github.com/SocialGouv/serving-ml/issues/141)) ([330ef66](https://github.com/SocialGouv/serving-ml/commit/330ef6622705114c8e2a798b90f508d4e1679e2e))
+
 ## [1.6.11](https://github.com/SocialGouv/serving-ml/compare/v1.6.10...v1.6.11) (2021-11-15)
 
 
