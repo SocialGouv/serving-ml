@@ -1,3 +1,10 @@
+## [1.6.13](https://github.com/SocialGouv/serving-ml/compare/v1.6.12...v1.6.13) (2021-11-26)
+
+
+### Bug Fixes
+
+* **ci:** test autodevops ([#143](https://github.com/SocialGouv/serving-ml/issues/143)) ([62a2d32](https://github.com/SocialGouv/serving-ml/commit/62a2d32da325d100db29ae6af7a741bc0ffa2615))
+
 ## [1.6.12](https://github.com/SocialGouv/serving-ml/compare/v1.6.11...v1.6.12) (2021-11-22)
 
 
