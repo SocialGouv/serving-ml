@@ -41,7 +41,7 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/k8s-manifests@generate
+      uses: SocialGouv/actions/autodevops-manifests@generate
       with:
         environment: "dev"
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
