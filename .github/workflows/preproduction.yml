@@ -41,7 +41,7 @@ jobs:
     steps:
 
     - name: Use autodevops manifests generation
-      uses: SocialGouv/actions/autodevops-manifests@generate
+      uses: SocialGouv/actions/autodevops-manifests@v1
       with:
         environment: preprod
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
