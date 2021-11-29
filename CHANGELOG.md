@@ -1,3 +1,10 @@
+## [1.6.14](https://github.com/SocialGouv/serving-ml/compare/v1.6.13...v1.6.14) (2021-11-29)
+
+
+### Bug Fixes
+
+* upgrade to workflows@v1 ([#145](https://github.com/SocialGouv/serving-ml/issues/145)) ([e91f00e](https://github.com/SocialGouv/serving-ml/commit/e91f00e51ef19b09394151b9e4c6d49aa2c400ea))
+
 ## [1.6.13](https://github.com/SocialGouv/serving-ml/compare/v1.6.12...v1.6.13) (2021-11-26)
 
 
