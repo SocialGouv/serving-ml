@@ -2,6 +2,29 @@
 
 exports[`kosko generate --prod 1`] = `
 "---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default
+  namespace: serving-ml
+spec:
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/namespace: serving-ml
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: ingress-controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: monitoring
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
