@@ -1,3 +1,10 @@
+## [1.6.15](https://github.com/SocialGouv/serving-ml/compare/v1.6.14...v1.6.15) (2021-12-06)
+
+
+### Bug Fixes
+
+* **secu:** use netpol ([#150](https://github.com/SocialGouv/serving-ml/issues/150)) ([3f61998](https://github.com/SocialGouv/serving-ml/commit/3f61998a1ccc18c1e97ac2031616cf2c4952314b))
+
 ## [1.6.14](https://github.com/SocialGouv/serving-ml/compare/v1.6.13...v1.6.14) (2021-11-29)
 
 
