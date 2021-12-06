@@ -29,14 +29,12 @@ metadata:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: default
+  name: netpol-serving-ml
   namespace: serving-ml
 spec:
   ingress:
     - from:
-        - namespaceSelector:
-            matchLabels:
-              network-policy/namespace: serving-ml
+        - podSelector: {}
     - from:
         - namespaceSelector:
             matchLabels:
