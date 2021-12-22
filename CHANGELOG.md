@@ -1,3 +1,10 @@
+## [1.6.16](https://github.com/SocialGouv/serving-ml/compare/v1.6.15...v1.6.16) (2021-12-22)
+
+
+### Bug Fixes
+
+* **k8s:** fix hpa ([#153](https://github.com/SocialGouv/serving-ml/issues/153)) ([d1ae404](https://github.com/SocialGouv/serving-ml/commit/d1ae404c969c0a0b611ea37db36605339f48def7))
+
 ## [1.6.15](https://github.com/SocialGouv/serving-ml/compare/v1.6.14...v1.6.15) (2021-12-06)
 
 
