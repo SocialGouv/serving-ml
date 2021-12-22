@@ -119,7 +119,7 @@ spec:
               memory: 2Gi
             requests:
               cpu: 500m
-              memory: 1.5Gi
+              memory: 2Gi
           startupProbe:
             failureThreshold: 12
             httpGet:
@@ -231,7 +231,7 @@ spec:
           averageUtilization: 100
           type: Utilization
       type: Resource
-  minReplicas: 1
+  minReplicas: 2
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment

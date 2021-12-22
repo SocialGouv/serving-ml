@@ -5,7 +5,7 @@ import { createAutoscale } from "@socialgouv/kosko-charts/components/autoscale";
 import { updateMetadata } from "@socialgouv/kosko-charts/utils/updateMetadata";
 import type { Deployment } from "kubernetes-models/apps/v1";
 import { IIoK8sApiCoreV1HTTPGetAction } from "kubernetes-models/v1";
-import environments from '@socialgouv/kosko-charts/environments';
+import environments from "@socialgouv/kosko-charts/environments";
 
 const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
   path: "/v1/models/sentqam",
@@ -13,7 +13,9 @@ const httpGet: IIoK8sApiCoreV1HTTPGetAction = {
 };
 
 const ciEnv = environments(process.env);
-const version = ciEnv.isPreProduction ? `preprod-${ciEnv.sha}` : ciEnv.tag || `sha-${ciEnv.sha}`;
+const version = ciEnv.isPreProduction
+  ? `preprod-${ciEnv.sha}`
+  : ciEnv.tag || `sha-${ciEnv.sha}`;
 
 const asyncManifests = create("serving-ml", {
   env,
@@ -39,7 +41,7 @@ const asyncManifests = create("serving-ml", {
       resources: {
         requests: {
           cpu: "500m",
-          memory: "1.5Gi",
+          memory: "2Gi",
         },
         // cpu=1000, memory=3Gi offers 17req/s
         limits: {
@@ -59,7 +61,7 @@ export default async () => {
   ok(deployment);
   const hpa = createAutoscale(deployment);
   ok(hpa.spec);
-  hpa.spec.minReplicas = ciEnv.isProduction ? 2 : 1;
+  hpa.spec.minReplicas = 2;
   ok(deployment.metadata);
   ok(deployment.metadata.namespace);
   updateMetadata(hpa, {
