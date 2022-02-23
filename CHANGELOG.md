@@ -1,3 +1,10 @@
+## [1.6.17](https://github.com/SocialGouv/serving-ml/compare/v1.6.16...v1.6.17) (2022-02-23)
+
+
+### Bug Fixes
+
+* **ci:** autodevops-helm ([#161](https://github.com/SocialGouv/serving-ml/issues/161)) ([c738886](https://github.com/SocialGouv/serving-ml/commit/c738886f5da93a1c53b45742173fef68a1a1a7b8))
+
 ## [1.6.16](https://github.com/SocialGouv/serving-ml/compare/v1.6.15...v1.6.16) (2021-12-22)
 
 
