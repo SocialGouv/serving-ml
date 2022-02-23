@@ -38,7 +38,7 @@ jobs:
   deploy:
     name: Deploy application
     runs-on: ubuntu-latest
-    needs: [register, manifests]
+    needs: [register]
     environment:
       name: preproduction
       url: https://serving-ml-preprod.dev.fabrique.social.gouv.fr
