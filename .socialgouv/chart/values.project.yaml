@@ -1,0 +1,17 @@
+app:
+  containerPort: 8501
+  probesPath: /v1/models/sentqam
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 2Gi
+  autoscale:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    averageUtilization:
+      cpu: 100
+      memory: 100
