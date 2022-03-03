@@ -1,3 +1,10 @@
+## [1.6.19](https://github.com/SocialGouv/serving-ml/compare/v1.6.18...v1.6.19) (2022-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency node-fetch to v2.6.7 [security] ([#162](https://github.com/SocialGouv/serving-ml/issues/162)) ([741bf23](https://github.com/SocialGouv/serving-ml/commit/741bf2359d7e9667f9484018811bfd7a91145604))
+
 ## [1.6.18](https://github.com/SocialGouv/serving-ml/compare/v1.6.17...v1.6.18) (2022-02-23)
 
 
