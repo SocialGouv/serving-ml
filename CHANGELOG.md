@@ -1,3 +1,10 @@
+## [1.6.20](https://github.com/SocialGouv/serving-ml/compare/v1.6.19...v1.6.20) (2022-03-23)
+
+
+### Bug Fixes
+
+* **ci:** use kube-workflow ([#166](https://github.com/SocialGouv/serving-ml/issues/166)) ([6dfe9f3](https://github.com/SocialGouv/serving-ml/commit/6dfe9f3ca49e1ed676333065b7ed74d75bfb2f24))
+
 ## [1.6.19](https://github.com/SocialGouv/serving-ml/compare/v1.6.18...v1.6.19) (2022-03-03)
 
 
