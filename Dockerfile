@@ -22,3 +22,6 @@ WORKDIR /models/sentqam/3
 
 RUN curl -L https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3?tf-hub-format=compressed --output sentqam.tar.gz
 RUN tar -zxf sentqam.tar.gz --directory ./
+
+RUN useradd -M -u 1000 user
+USER 1000
