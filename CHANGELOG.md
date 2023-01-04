@@ -1,3 +1,10 @@
+## [1.6.21](https://github.com/SocialGouv/serving-ml/compare/v1.6.20...v1.6.21) (2023-01-04)
+
+
+### Bug Fixes
+
+* **docker:** use unprivilegied container ([#169](https://github.com/SocialGouv/serving-ml/issues/169)) ([1c05b8d](https://github.com/SocialGouv/serving-ml/commit/1c05b8d24c42db2fc227a2fcbbacf652285faf82))
+
 ## [1.6.20](https://github.com/SocialGouv/serving-ml/compare/v1.6.19...v1.6.20) (2022-03-23)
 
 
