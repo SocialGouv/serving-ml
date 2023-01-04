@@ -5,7 +5,7 @@ RUN set -x \
   && apt-get update \
   #
   && apt-get install -y --no-install-recommends \
-  curl=7.58.0-2ubuntu3.16 \
+  curl \
   #
   && apt-get purge -y --auto-remove \
   && apt-get -y clean \
@@ -22,3 +22,5 @@ WORKDIR /models/sentqam/3
 
 RUN curl -L https://tfhub.dev/google/universal-sentence-encoder-multilingual-qa/3?tf-hub-format=compressed --output sentqam.tar.gz
 RUN tar -zxf sentqam.tar.gz --directory ./
+
+USER 1234
