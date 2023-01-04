@@ -1,3 +1,10 @@
+## [1.6.22](https://github.com/SocialGouv/serving-ml/compare/v1.6.21...v1.6.22) (2023-01-04)
+
+
+### Bug Fixes
+
+* **k8s:** resources requests ([9c5c704](https://github.com/SocialGouv/serving-ml/commit/9c5c704f44170a0332a5f2096dc5c9225781d152))
+
 ## [1.6.21](https://github.com/SocialGouv/serving-ml/compare/v1.6.20...v1.6.21) (2023-01-04)
 
 
