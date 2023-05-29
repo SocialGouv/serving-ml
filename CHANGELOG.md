@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/SocialGouv/serving-ml/compare/v1.6.22...v1.7.0) (2023-05-29)
+
+
+### Features
+
+* ci on kontinuous ([#171](https://github.com/SocialGouv/serving-ml/issues/171)) ([69a6cd7](https://github.com/SocialGouv/serving-ml/commit/69a6cd70cb5facf203e9d6cb5d3d8915f3137860))
+
 ## [1.6.22](https://github.com/SocialGouv/serving-ml/compare/v1.6.21...v1.6.22) (2023-01-04)
 
 
