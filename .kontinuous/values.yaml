@@ -1,5 +1,4 @@
 app:
-  enabled: true
   containerPort: 8501
   probesPath: /v1/models/sentqam
   resources:
