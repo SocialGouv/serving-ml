@@ -9,6 +9,6 @@
     "ora": "^5.4.1",
     "p-all": "^4.0.0",
     "stopwords-fr": "^0.3.0",
-    "unist-util-select": "^4.0.1"
+    "unist-util-select": "^5.0.0"
   }
 }
