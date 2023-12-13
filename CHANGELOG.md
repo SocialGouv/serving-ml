@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/SocialGouv/serving-ml/compare/v1.7.1...v1.7.2) (2023-12-13)
+
+
+### Bug Fixes
+
+* docker rootless ([#176](https://github.com/SocialGouv/serving-ml/issues/176)) ([fb0085a](https://github.com/SocialGouv/serving-ml/commit/fb0085ad8aaf6a02cbd80b4c9f6ef8b0636b3d69))
+
 ## [1.7.1](https://github.com/SocialGouv/serving-ml/compare/v1.7.0...v1.7.1) (2023-12-13)
 
 
