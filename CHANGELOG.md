@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/SocialGouv/serving-ml/compare/v1.7.0...v1.7.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* use ovh ([2f845ee](https://github.com/SocialGouv/serving-ml/commit/2f845ee7470899b1080201a97f34540e05f2423a))
+
 # [1.7.0](https://github.com/SocialGouv/serving-ml/compare/v1.6.22...v1.7.0) (2023-05-29)
 
 
