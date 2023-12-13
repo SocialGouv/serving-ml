@@ -22,7 +22,7 @@ RUN mkdir -p /models/sentqam/3
 RUN addgroup --system --gid 1000 docker && adduser --system --uid 1000 docker
 RUN chown -R 1000:1000 /models/sentqam/3
 
-USER docker
+USER 1000
 
 WORKDIR /models/sentqam/3
 
