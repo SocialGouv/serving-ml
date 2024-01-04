@@ -1,0 +1,27 @@
+name: Activate OVH GPU Machine
+on:
+  workflow_dispatch:
+
+jobs:
+  curl:
+    name: "Call to OVH"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Call API"
+        id: api
+        run: |
+          HTTP_METHOD="POST"
+          HTTP_QUERY="https://api.ovh.com/1.0/cloud/project/${{ secrets.PROJECT_ID }}/instance/${{ secrets.INSTANCE_ID }}/stop"
+          TIME=$(curl -s https://api.ovh.com/1.0/auth/time)
+          CLEAR_SIGN=${{ secrets.OVH_APP_SECRET }}"+"${{ secrets.OVH_CONSUMER_KEY }}"+"$HTTP_METHOD"+"$HTTP_QUERY"+"$TIME
+          SIG='$1$'$(echo -n $CLEAR_SIGN | openssl dgst -sha1 -hex | cut -f 2 -d ' ' )
+          
+          curl -X $HTTP_METHOD \
+          $HTTP_QUERY \
+          -H "Content-Type: application/json" \
+          -H "X-Ovh-Application: ${{ secrets.OVH_APP_KEY }}" \
+          -H "X-Ovh-Timestamp: $TIME" \
+          -H "X-Ovh-Signature: $SIG" \
+          -H "X-Ovh-Consumer: ${{ secrets.OVH_CONSUMER_KEY }}"
+      - name: "Get response"
+        run: echo ${{ steps.api.outputs.response }}
