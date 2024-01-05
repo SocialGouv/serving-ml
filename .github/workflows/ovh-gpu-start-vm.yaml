@@ -1,4 +1,4 @@
-name: Activate OVH GPU Machine
+name: Start OVH GPU Machine
 on:
   workflow_dispatch:
 
@@ -7,7 +7,7 @@ jobs:
     name: "Call to OVH - start"
     runs-on: ubuntu-latest
     steps:
-      - name: "Call API"
+      - name: "Call API - start"
         id: api
         run: |
           INSTANCE_ID=${{ secrets.INSTANCE_ID }}
