@@ -4,24 +4,26 @@ on:
 
 jobs:
   curl:
-    name: "Call to OVH"
+    name: "Call to OVH - start"
     runs-on: ubuntu-latest
     steps:
       - name: "Call API"
         id: api
         run: |
           HTTP_METHOD="POST"
-          HTTP_QUERY="https://api.ovh.com/1.0/cloud/project/${{ secrets.PROJECT_ID }}/instance/${{ secrets.INSTANCE_ID }}/stop"
-          TIME=$(curl -s https://api.ovh.com/1.0/auth/time)
-          CLEAR_SIGN=${{ secrets.OVH_APP_SECRET }}"+"${{ secrets.OVH_CONSUMER_KEY }}"+"$HTTP_METHOD"+"$HTTP_QUERY"+"$TIME
+          HTTP_QUERY="https://eu.api.ovh.com/1.0/cloud/project/${PROJECT_ID}/instance/${INSTANCE_ID}/start"
+          TIME=$(curl -s https://eu.api.ovh.com/1.0/auth/time)
+          HTTP_BODY=""
+          CLEAR_SIGN="$OVH_APP_SECRET+$OVH_CONSUMER_KEY+$HTTP_METHOD+$HTTP_QUERY+$HTTP_BODY+$TIME"
           SIG='$1$'$(echo -n $CLEAR_SIGN | openssl dgst -sha1 -hex | cut -f 2 -d ' ' )
-          
+
           curl -X $HTTP_METHOD \
           $HTTP_QUERY \
-          -H "Content-Type: application/json" \
-          -H "X-Ovh-Application: ${{ secrets.OVH_APP_KEY }}" \
+          -H "Content-Type:application/json;charset=utf-8" \
+          -H "X-Ovh-Application: $OVH_APP_KEY" \
           -H "X-Ovh-Timestamp: $TIME" \
           -H "X-Ovh-Signature: $SIG" \
-          -H "X-Ovh-Consumer: ${{ secrets.OVH_CONSUMER_KEY }}"
+          -H "X-Ovh-Consumer: $OVH_CONSUMER_KEY" \
+          --data "$HTTP_BODY"
       - name: "Get response"
         run: echo ${{ steps.api.outputs.response }}
