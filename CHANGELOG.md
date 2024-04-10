@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/SocialGouv/serving-ml/compare/v1.7.2...v1.7.3) (2024-04-10)
+
+
+### Bug Fixes
+
+* higher resources for HPA ([366c511](https://github.com/SocialGouv/serving-ml/commit/366c5118028c7d41a6e901fa30f0c95c6631e5ff))
+
 ## [1.7.2](https://github.com/SocialGouv/serving-ml/compare/v1.7.1...v1.7.2) (2023-12-13)
 
 
