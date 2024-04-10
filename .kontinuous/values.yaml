@@ -3,11 +3,11 @@ app:
   probesPath: /v1/models/sentqam
   resources:
     limits:
-      cpu: 1000m
-      memory: 2Gi
+      cpu: "1"
+      memory: 3Gi
     requests:
-      cpu: 250m
-      memory: 2Gi
+      cpu: "1"
+      memory: 3Gi
   autoscale:
     enabled: true
     minReplicas: 2
