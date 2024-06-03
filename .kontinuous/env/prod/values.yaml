@@ -1,3 +1,5 @@
 app:
   containerPort: 8501
   probesPath: /v1/models/sentqam
+  autoscale:
+    enabled: true
