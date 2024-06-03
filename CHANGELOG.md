@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/SocialGouv/serving-ml/compare/v1.7.3...v1.7.4) (2024-06-03)
+
+
+### Bug Fixes
+
+* autoscale ([dc25a33](https://github.com/SocialGouv/serving-ml/commit/dc25a3382c93c18c8057eae4bf0bc0fd8605c564))
+
 ## [1.7.3](https://github.com/SocialGouv/serving-ml/compare/v1.7.2...v1.7.3) (2024-04-10)
 
 
