@@ -1,3 +1,6 @@
 app:
   containerPort: 8501
   probesPath: /v1/models/sentqam
+  annotations:
+    oblik.socialgouv.io/min-request-cpu: "1"
+    oblik.socialgouv.io/min-request-memory: 3Gi
