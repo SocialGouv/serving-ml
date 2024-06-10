@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/SocialGouv/serving-ml/compare/v1.7.4...v1.7.5) (2024-06-10)
+
+
+### Bug Fixes
+
+* update resources ([2747dd0](https://github.com/SocialGouv/serving-ml/commit/2747dd0c1705317056ff7c2f62f063c654cc0baa))
+
 ## [1.7.4](https://github.com/SocialGouv/serving-ml/compare/v1.7.3...v1.7.4) (2024-06-03)
 
 
