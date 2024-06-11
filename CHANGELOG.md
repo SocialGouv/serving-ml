@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/SocialGouv/serving-ml/compare/v1.7.5...v1.8.0) (2024-06-11)
+
+
+### Features
+
+* **perf:** increase nlp ([#181](https://github.com/SocialGouv/serving-ml/issues/181)) ([718452b](https://github.com/SocialGouv/serving-ml/commit/718452b4475f44847d5e7e1da9772462ac2d907a))
+
 ## [1.7.5](https://github.com/SocialGouv/serving-ml/compare/v1.7.4...v1.7.5) (2024-06-10)
 
 
